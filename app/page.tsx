@@ -10,18 +10,27 @@ const holtwood = Holtwood_One_SC({
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <section className="relative min-h-[93vh] w-full overflow-hidden bg-[url('/Images/landingpageIMG1.jpg')] bg-[length:100%] bg-center bg-no-repeat">
+      <section className="relative h-165 w-full overflow-hidden">
+        <Image
+          src="/Images/landingpageIMG1.jpg"
+          alt="Hero background"
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="relative mx-50 flex w-full max-w-4xl flex-col items-start gap-4 px-6 py-70 text-left text-white">
-          <h1
-            className={`${holtwood.className} text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
-          >
-            Travel leisurely, explore endlessly
-          </h1>
-          <p className="max-w-xl text-sm font-semibold leading-6 text-white/90 sm:text-base font-['SF_Pro_Display','SF_Pro_Text','SF_Pro',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
-            Discover handpicked destinations, curated tours, and seamless travel
-            planning tailored to your next adventure.
-          </p>
+        <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-white">
+          <div className="w-full max-w-2xl">
+            <h1
+              className={`${holtwood.className} text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
+            >
+              Travel leisurely, explore endlessly
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base font-['SF_Pro_Display','SF_Pro_Text','SF_Pro',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
+              Discover handpicked destinations, curated tours, and seamless
+              travel planning tailored to your next adventure.
+            </p>
+          </div>
         </div>
       </section>
       <section className="group w-full bg-white">

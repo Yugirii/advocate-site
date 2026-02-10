@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Advocate - Your Trusted Partner",
+  title: "Advocate Tours and Travel",
   description: "Discover exceptional destinations, services, and expert guidance with Advocate.",
 };
 
