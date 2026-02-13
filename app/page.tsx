@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Holtwood_One_SC } from "next/font/google";
+import styles from "./page.module.css";
 
 const holtwood = Holtwood_One_SC({
   subsets: ["latin"],
@@ -9,141 +10,192 @@ const holtwood = Holtwood_One_SC({
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <section className="relative h-165 w-full overflow-hidden">
+    <main className={styles.main}>
+      <section className={styles.heroSection}>
         <Image
           src="/Images/landingpageIMG1.jpg"
           alt="Hero background"
           fill
           priority
-          className="object-cover"
+          className={styles.heroImage}
         />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-white">
-          <div className="w-full max-w-2xl">
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <div className={styles.heroInner}>
             <h1
-              className={`${holtwood.className} text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
+              className={`${holtwood.className} ${styles.heroTitle}`}
             >
               Travel leisurely, explore endlessly
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base font-['SF_Pro_Display','SF_Pro_Text','SF_Pro',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
+            <p className={styles.heroText}>
               Discover handpicked destinations, curated tours, and seamless
               travel planning tailored to your next adventure.
             </p>
           </div>
         </div>
       </section>
-      <section className="group w-full bg-white">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[1.1fr_1fr]">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md">
+      <section className={styles.contentSection}>
+        <div className={styles.sectionGrid}>
+          <div className={styles.mediaFrame}>
             <Image
               src="/Images/advoquickfixAffiliate.jpg"
               alt="Advoquickfix affiliate team"
               fill
               sizes="(min-width: 768px) 55vw, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className={`${styles.zoomMedia} ${styles.zoomImageFill}`}
               priority
             />
           </div>
-          <div className="flex flex-col items-start gap-4">
+          <div className={styles.textCol}>
             <h2
-              className={`${holtwood.className} text-2xl uppercase tracking-[0.06em] text-[#50A7A4] sm:text-3xl`}
+              className={`${holtwood.className} ${styles.sectionTitle}`}
             >
               Be an Advoquickfix Affiliate
             </h2>
-            <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
+            <p className={styles.sectionBody}>
               Start your travel business with a trusted one-stop partner. Get
               access to tools, training, and support to grow with confidence.
             </p>
             <Link
               href="/services"
-              className={`${holtwood.className} inline-flex items-center gap-2 rounded-md bg-[#D89B2E] px-5 py-2 text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#c4861f]`}
+              className={`${holtwood.className} ${styles.ctaButton}`}
             >
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
         </div>
       </section>
-      <section className="group w-full bg-white">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-0 md:grid-cols-[1fr_1.1fr]">
-          <div className="order-2 flex flex-col items-start gap-4 md:order-1">
+      <section className={styles.contentSection}>
+        <div className={styles.sectionGridAlt}>
+          <div className={styles.textColAlt}>
             <h2
-              className={`${holtwood.className} text-2xl uppercase tracking-[0.06em] text-[#50A7A4] sm:text-3xl`}
+              className={`${holtwood.className} ${styles.sectionTitle}`}
             >
               Tourist Visa Assistance
             </h2>
-            <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
+            <p className={styles.sectionBody}>
               Get step-by-step guidance for your visa requirements with a team
               that makes the process clear, efficient, and stress-free.
             </p>
             <Link
               href="/services"
-              className={`${holtwood.className} inline-flex items-center gap-2 rounded-md bg-[#D89B2E] px-5 py-2 text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#c4861f]`}
+              className={`${holtwood.className} ${styles.ctaButton}`}
             >
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
-          <div className="order-1 relative aspect-[16/9] w-full overflow-hidden rounded-md md:order-2">
+          <div className={styles.mediaFrameAlt}>
             <Image
               src="/Images/visaassistance.jpg"
               alt="Tourist visa assistance"
               fill
               sizes="(min-width: 768px) 55vw, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className={`${styles.zoomMedia} ${styles.zoomImageFill}`}
             />
           </div>
         </div>
       </section>
-      <section className="group w-full bg-white">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[1.1fr_1fr]">
-          <div className="relative w-full overflow-hidden rounded-md">
+      <section className={styles.contentSection}>
+        <div className={styles.sectionGrid}>
+          <div className={styles.mediaFrameFull}>
             <Image
               src="/Images/tourpackageLandingPage.jpg"
               alt="Advoquickfix affiliate team"
               width={900}
               height={550}
-              className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className={`${styles.zoomMedia} ${styles.zoomImageStatic}`}
               priority
             />
           </div>
-          <div className="flex flex-col items-start gap-4">
+          <div className={styles.textCol}>
             <h2
-              className={`${holtwood.className} text-2xl uppercase tracking-[0.06em] text-[#50A7A4] sm:text-3xl`}
+              className={`${holtwood.className} ${styles.sectionTitle}`}
             >
               where to next?
             </h2>
-            <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
-              Explore travel destinations tailored to provide you with unforgettable experiences, whether you seek vibrant cities, serene beaches, or cultural treasures.
+            <p className={styles.sectionBody}>
+              Explore travel destinations tailored to provide you with
+              unforgettable experiences, whether you seek vibrant cities, serene
+              beaches, or cultural treasures.
             </p>
             <Link
               href="/services"
-              className={`${holtwood.className} inline-flex items-center gap-2 rounded-md bg-[#D89B2E] px-5 py-2 text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#c4861f]`}
+              className={`${holtwood.className} ${styles.ctaButton}`}
             >
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
         </div>
       </section>
-      <section className="group w-full bg-white">
-        <div className="mx-auto w-full max-w-9xl px-6 py-10">
-          <div className="relative min-h-[85vh] overflow-hidden rounded-xl bg-[url('/Images/companyProfile.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]">
-            <div className="absolute inset-0 bg-black/45" />
-            <div className="relative flex w-full max-w-4xl flex-col items-start gap-4 px-15 py-60 pl-50 text-left text-white">
-          <h2
-            className={`${holtwood.className} text-3xl uppercase tracking-[0.08em] text-amber-500 sm:text-4xl md:text-5xl`}
-          >
-            Advocate Tours and Travels Inc.
-          </h2>
-          <p className="max-w-xl text-sm leading-6 text-white/90 sm:text-base">
-            Learn about our mission, our people, and how we help travelers and
-            travel entrepreneurs grow with confidence.
-          </p>
-          <Link
-            href="/about"
-            className={`${holtwood.className} inline-flex items-center gap-2 rounded-md bg-[#D89B2E] px-5 py-2 text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#c4861f]`}
-          >
-            Read More <span aria-hidden="true">&gt;</span>
-          </Link>
+      <section className={styles.profileSection}>
+        <div className={styles.profileContainer}>
+          <div className={styles.profileCard}>
+            <div className={styles.profileOverlay} />
+            <div className={styles.profileContent}>
+              <h2 className={`${holtwood.className} ${styles.profileTitle}`}>
+                Advocate Tours and Travels Inc.
+              </h2>
+              <p className={styles.profileBody}>
+                Learn about our mission, our people, and how we help travelers
+                and travel entrepreneurs grow with confidence.
+              </p>
+              <Link href="/about" className={`${holtwood.className} ${styles.ctaButton}`}>
+                Read More <span aria-hidden="true">&gt;</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.contactSection}>
+        <div className={styles.contactContainer}>
+          <div className={styles.contactLayout}>
+            <aside className={styles.inquiryCol}>
+              <h3 className={`${holtwood.className} ${styles.inquiryTitle}`}>For Inquiries</h3>
+              <div className={styles.inquiryList}>
+                <p className={styles.inquiryItem}>
+                  <span className={styles.inquiryIcon} aria-hidden="true">
+                    @
+                  </span>
+                  advocatetoursandtravel@gmail.com
+                </p>
+                <p className={styles.inquiryItem}>
+                  <span className={styles.inquiryIcon} aria-hidden="true">
+                    Tel
+                  </span>
+                  +63 905 845 4125
+                </p>
+              </div>
+            </aside>
+
+            <div className={styles.helpCol}>
+              <h3 className={`${holtwood.className} ${styles.helpTitle}`}>We&apos;re Here to Help</h3>
+              <p className={styles.helpSubtitle}>
+                Kindly message us so we can assist in your travel needs
+              </p>
+
+              <div className={styles.formShell}>
+                <div className={styles.formRow}>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className={styles.field}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className={styles.field}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    className={styles.field}
+                  />
+                </div>
+                <textarea
+                  placeholder="Message"
+                  className={styles.messageField}
+                />
+              </div>
             </div>
           </div>
         </div>
