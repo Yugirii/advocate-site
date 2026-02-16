@@ -86,7 +86,7 @@ export default function MobileNav({ items, tone = "light" }: MobileNavProps) {
                   key={item.href}
                   href={item.href}
                   role="menuitem"
-                  className="rounded-md px-3 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+                  className="rounded-md px-3 py-2 text-sm font-semibold text-slate-900 transition-all duration-200 ease-out hover:bg-slate-100 hover:text-[#E39727]"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

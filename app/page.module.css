@@ -158,7 +158,7 @@
 
 .contactContainer {
   @apply mx-auto w-full px-6 py-16;
-  max-width: 96rem;
+  max-width: 80rem;
 }
 
 .contactLayout {
@@ -168,6 +168,7 @@
 
 .inquiryCol {
   @apply pt-2;
+  order: 2;
 }
 
 .inquiryTitle {
@@ -186,13 +187,12 @@
 }
 
 .inquiryIcon {
-  @apply inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold;
-  background-color: #d89b2e;
-  color: #ffffff;
+  @apply h-6 w-6 flex-shrink-0 object-contain;
 }
 
 .helpCol {
   @apply w-full;
+  order: 1;
 }
 
 .helpTitle {
@@ -237,6 +237,33 @@
   color: #8f8f8f;
 }
 
+.accreditationSection {
+  @apply w-full;
+  background-color: #ffffff;
+}
+
+.accreditationContainer {
+  @apply mx-auto w-full max-w-6xl px-6 py-14 text-center;
+}
+
+.accreditationTitle {
+  @apply text-3xl font-semibold leading-tight text-black sm:text-4xl;
+}
+
+.accreditationText {
+  @apply mx-auto mt-4 max-w-4xl text-base leading-7;
+  color: #2d2d2d;
+}
+
+.logoRow {
+  @apply mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-7;
+}
+
+.logoImage {
+  @apply h-auto w-auto object-contain;
+  max-height: 5rem;
+}
+
 @media (min-width: 768px) {
   .sectionGrid {
     grid-template-columns: 1.1fr 1fr;
@@ -253,10 +280,20 @@
   .mediaFrameAlt {
     order: 2;
   }
+}
 
+@media (min-width: 1100px) {
   .contactLayout {
     grid-template-columns: 0.9fr 2fr;
     gap: 4rem;
+  }
+
+  .inquiryCol {
+    order: 1;
+  }
+
+  .helpCol {
+    order: 2;
   }
 
   .formRow {

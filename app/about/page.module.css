@@ -1,0 +1,121 @@
+@reference "tailwindcss";
+
+.main {
+  @apply w-full bg-white;
+  padding-top: clamp(4.5rem, 8vw, 5.5rem);
+}
+
+.hero {
+  @apply relative w-full overflow-hidden;
+  height: clamp(20rem, 45vh, 28rem);
+}
+
+.heroImage {
+  @apply object-cover object-center;
+}
+
+.heroOverlay {
+  @apply absolute inset-0 bg-black/50;
+}
+
+.heroContent {
+  @apply absolute inset-0 flex items-end;
+}
+
+.heroInner {
+  @apply mx-auto w-full max-w-6xl px-6 pb-6 sm:px-8 sm:pb-8 lg:pb-12;
+}
+
+.heroTitle {
+  @apply text-4xl uppercase leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
+  letter-spacing: 0.05em;
+}
+
+.heroTitleBreak {
+  display: block;
+}
+
+.heroText {
+  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
+  font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.aboutSection {
+  @apply w-full;
+  background-color: #f3f3f3;
+}
+
+.aboutContainer {
+  @apply mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 md:py-16;
+}
+
+.sectionTitle {
+  @apply text-center text-4xl uppercase sm:text-5xl;
+  color: #50a7a4;
+  letter-spacing: 0.05em;
+}
+
+.sectionLead {
+  @apply mx-auto mt-5 max-w-3xl text-center text-base leading-7;
+  color: #232323;
+}
+
+.affiliationGrid {
+  @apply mt-12 grid items-center gap-8;
+  grid-template-columns: 1fr;
+}
+
+.affiliationMedia {
+  @apply w-full overflow-hidden rounded-sm;
+}
+
+.affiliationImage {
+  @apply h-auto w-full object-cover;
+}
+
+.affiliationTextCol {
+  @apply w-full;
+}
+
+.affiliationTitle {
+  @apply text-3xl font-semibold leading-tight;
+  color: #111111;
+}
+
+.affiliationBody {
+  @apply mt-4 text-lg leading-8;
+  color: #232323;
+}
+
+@media (min-width: 900px) {
+  .affiliationGrid {
+    grid-template-columns: 1.12fr 1fr;
+    gap: 2.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: clamp(18rem, 52vh, 24rem);
+  }
+
+  .heroInner {
+    @apply px-4 pb-6;
+  }
+
+  .aboutContainer {
+    @apply px-4 py-10;
+  }
+
+  .sectionLead {
+    @apply text-sm leading-6;
+  }
+
+  .affiliationTitle {
+    @apply text-2xl;
+  }
+
+  .affiliationBody {
+    @apply text-base leading-7;
+  }
+}

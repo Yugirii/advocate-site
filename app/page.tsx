@@ -146,22 +146,32 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className={styles.contactSection}>
+      <section id="contact" className={styles.contactSection}>
         <div className={styles.contactContainer}>
           <div className={styles.contactLayout}>
             <aside className={styles.inquiryCol}>
               <h3 className={`${holtwood.className} ${styles.inquiryTitle}`}>For Inquiries</h3>
               <div className={styles.inquiryList}>
                 <p className={styles.inquiryItem}>
-                  <span className={styles.inquiryIcon} aria-hidden="true">
-                    @
-                  </span>
+                  <Image
+                    src="/Images/emailIcon.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={26}
+                    height={26}
+                    className={styles.inquiryIcon}
+                  />
                   advocatetoursandtravel@gmail.com
                 </p>
                 <p className={styles.inquiryItem}>
-                  <span className={styles.inquiryIcon} aria-hidden="true">
-                    Tel
-                  </span>
+                  <Image
+                    src="/Images/phoneIcon.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={26}
+                    height={26}
+                    className={styles.inquiryIcon}
+                  />
                   +63 905 845 4125
                 </p>
               </div>
@@ -197,6 +207,65 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.accreditationSection}>
+        <div className={styles.accreditationContainer}>
+          <h2 className={styles.accreditationTitle}>
+            Advocate Tours and Travel Incorporated
+          </h2>
+          <p className={styles.accreditationText}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
+            orci, consectetur id nulla et, condimentum lacinia lacus. Class
+            aptent taciti sociosqu ad litora torquent per conubia nostra, per
+            inceptos himenaeos.
+          </p>
+
+          <div className={styles.logoRow}>
+            <Image
+              src="/Images/Department_of_Tourism.svg"
+              alt="Department of Tourism"
+              width={90}
+              height={90}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/Images/PATA.png"
+              alt="PATA"
+              width={180}
+              height={65}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/Images/PHILTOA.png"
+              alt="PHILTOA"
+              width={200}
+              height={65}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/Images/PTAA.jpg"
+              alt="PTAA"
+              width={170}
+              height={65}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/Images/TPB.png"
+              alt="TPB Philippines"
+              width={135}
+              height={80}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/Images/NAITAS.jpg"
+              alt="NAITAS"
+              width={135}
+              height={80}
+              className={styles.logoImage}
+            />
           </div>
         </div>
       </section>

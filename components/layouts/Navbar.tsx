@@ -17,23 +17,25 @@ type NavbarProps = {
 export default function Navbar({ tone = "light" }: NavbarProps) {
   const toneClass = tone === "dark" ? "text-slate-900" : "text-white";
   const linkClass =
-    "whitespace-nowrap text-sm font-semibold opacity-90 transition-opacity hover:opacity-100";
+    "whitespace-nowrap text-sm font-semibold opacity-90 transition-all duration-200 ease-out hover:-translate-y-px hover:text-[#E39727] hover:opacity-100";
 
   return (
-    <nav className="w-full">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:px-8">
-        <div className="justify-self-start">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/Images/companynamenewLogo.png"
-              alt="Advocate logo"
-              width={260}
-              height={100}
-              priority
-              className="h-12 w-auto md:h-16"
-            />
-          </Link>
-        </div>
+    <nav className="relative w-full">
+      <div className="absolute left-2 top-1/2 z-20 -translate-y-1/2 sm:left-4 md:left-6 lg:left-8">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Images/companynamenewLogo.png"
+            alt="Advocate logo"
+            width={260}
+            height={100}
+            priority
+            className="h-12 w-auto md:h-16"
+          />
+        </Link>
+      </div>
+
+      <div className="mx-auto flex min-h-[72px] w-full max-w-6xl items-center justify-end px-4 py-3 md:grid md:min-h-[88px] md:grid-cols-[1fr_auto_1fr] md:items-center md:px-8">
+        <div className="hidden md:block" aria-hidden="true" />
 
         <div className={`hidden items-center gap-4 md:flex lg:gap-8 ${toneClass}`}>
           {navItems.map((item) => (
