@@ -38,11 +38,11 @@ export default function Home() {
         <div className={styles.sectionGrid}>
           <div className={styles.mediaFrame}>
             <Image
-              src="/Images/advoquickfixAffiliate.jpg"
+              src="/Images/advocateemployees.jpg"
               alt="Advoquickfix affiliate team"
               fill
               sizes="(min-width: 768px) 55vw, 100vw"
-              className={`${styles.zoomMedia} ${styles.zoomImageFill}`}
+              className={`${styles.zoomMedia} ${styles.zoomImageFill} ${styles.advoImageFocus}`}
               priority
             />
           </div>

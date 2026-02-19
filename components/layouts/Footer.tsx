@@ -26,7 +26,7 @@ const footerLinkClass =
 export default function Footer() {
   return (
     <footer className="w-full bg-[#50A7A4] text-white">
-      <div className="mx-auto w-full max-w-6xl px-6 py-10 md:px-8">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 md:px-8 md:py-14">
         <div className="flex items-start justify-between gap-6">
           <Link href="/" className="inline-flex">
             <Image
@@ -41,7 +41,7 @@ export default function Footer() {
           
         </div>
 
-        <div className="mt-5 grid gap-8 border-b border-white/25 pb-8 md:grid-cols-[1.6fr_1fr_1fr_auto]">
+        <div className="mt-7 grid gap-10 border-b border-white/25 pb-10 md:grid-cols-[1.6fr_1fr_1fr_auto]">
           <div>
             <h4 className="text-lg font-semibold">About</h4>
             <div className="mt-2 space-y-1.5 text-base leading-relaxed text-white/95">
@@ -76,7 +76,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-<div className="flex items-center gap-3 md:mt-1">
+          <div className="flex items-center gap-3 md:mt-1 md:justify-self-end">
             {socialLinks.map((item) => (
               <Link
                 key={item.label}
@@ -94,11 +94,10 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <div />
           
         </div>
 
-        <div className="mt-7 flex flex-col items-start gap-3">
+        <div className="mt-8 flex flex-col items-start gap-4">
           <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[14px] leading-none">
             {legalLinks.map((item, index) => (
               <span key={item.href} className="flex items-center">

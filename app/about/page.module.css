@@ -46,7 +46,7 @@
 }
 
 .aboutContainer {
-  @apply mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 md:py-16;
+  @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 md:py-20;
 }
 
 .sectionTitle {
@@ -87,10 +87,52 @@
   color: #232323;
 }
 
+.goalsGrid {
+  @apply mt-16 grid items-start gap-10;
+  grid-template-columns: 1fr;
+}
+
+.goalsTextCol {
+  @apply w-full;
+}
+
+.goalsTitle {
+  @apply text-2xl font-semibold leading-tight;
+  color: #111111;
+}
+
+.goalBlock {
+  @apply mt-8;
+}
+
+.goalHeading {
+  @apply text-xl uppercase leading-[1.25];
+  color: #50a7a4;
+  letter-spacing: 0.02em;
+}
+
+.goalBody {
+  @apply mt-3 text-base leading-7;
+  color: #232323;
+}
+
+.goalsMedia {
+  @apply w-full overflow-hidden rounded-sm;
+}
+
+.goalsImage {
+  @apply h-auto w-full object-cover;
+}
+
 @media (min-width: 900px) {
   .affiliationGrid {
     grid-template-columns: 1.12fr 1fr;
     gap: 2.2rem;
+  }
+
+  .goalsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
@@ -117,5 +159,17 @@
 
   .affiliationBody {
     @apply text-base leading-7;
+  }
+
+  .goalsTitle {
+    @apply text-2xl;
+  }
+
+  .goalHeading {
+    @apply text-lg;
+  }
+
+  .goalBody {
+    @apply text-sm leading-6;
   }
 }

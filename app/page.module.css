@@ -73,6 +73,10 @@
   @apply object-cover;
 }
 
+.advoImageFocus {
+  object-position: 50% 12%;
+}
+
 .zoomImageStatic {
   @apply h-auto w-full object-cover;
 }
@@ -320,5 +324,9 @@
     padding-right: 1rem;
     padding-bottom: 4rem;
     padding-left: 1rem;
+  }
+
+  .advoImageFocus {
+    object-position: 50% 16%;
   }
 }

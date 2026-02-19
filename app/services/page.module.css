@@ -1,0 +1,132 @@
+@reference "tailwindcss";
+
+.main {
+  @apply w-full bg-white;
+  padding-top: clamp(4.5rem, 8vw, 5.5rem);
+}
+
+.hero {
+  @apply relative w-full overflow-hidden;
+  height: clamp(20rem, 45vh, 28rem);
+}
+
+.heroImage {
+  @apply object-cover;
+  object-position: center 50%;
+}
+
+.heroOverlay {
+  @apply absolute inset-0 bg-black/50;
+}
+
+.heroContent {
+  @apply absolute inset-0 flex items-center;
+}
+
+.heroInner {
+  @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  transform: translateY(-8%);
+}
+
+.heroTitle {
+  @apply text-4xl uppercase leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
+  letter-spacing: 0.05em;
+}
+
+.heroTitleBreak {
+  display: block;
+}
+
+.heroText {
+  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
+  font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.affiliateSection {
+  @apply w-full;
+  background-color: #f3f3f3;
+}
+
+.affiliateContainer {
+  @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20;
+}
+
+.affiliateTitle {
+  @apply mx-auto max-w-3xl text-center text-4xl uppercase leading-[1.1] sm:text-5xl;
+  color: #50a7a4;
+  letter-spacing: 0.04em;
+}
+
+.affiliateText {
+  @apply mx-auto mt-6 max-w-3xl text-center text-lg leading-8;
+  color: #1f1f1f;
+}
+
+.benefitGrid {
+  @apply mt-14 grid gap-10;
+  grid-template-columns: 1fr;
+}
+
+.benefitItem {
+  @apply flex items-start gap-4;
+}
+
+.benefitIcon {
+  @apply mt-1 h-11 w-11 flex-shrink-0 object-contain;
+}
+
+.benefitText {
+  @apply text-2xl leading-tight;
+  color: #121212;
+}
+
+@media (min-width: 768px) {
+  .benefitGrid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: clamp(18rem, 52vh, 24rem);
+  }
+
+  .heroImage {
+    object-position: center 10%;
+  }
+
+  .heroInner {
+    @apply px-4;
+    transform: translateY(-5%);
+  }
+
+  .heroTitle {
+    @apply text-3xl;
+  }
+
+  .heroText {
+    @apply mt-3 text-sm leading-6;
+  }
+
+  .affiliateContainer {
+    @apply px-4 py-10;
+  }
+
+  .affiliateTitle {
+    @apply text-3xl;
+  }
+
+  .affiliateText {
+    @apply mt-4 text-base leading-7;
+  }
+
+  .benefitGrid {
+    @apply mt-10 gap-8;
+  }
+
+  .benefitText {
+    @apply text-xl leading-snug;
+  }
+}
