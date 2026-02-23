@@ -26,38 +26,49 @@
   @apply mx-auto w-full max-w-6xl px-6 pb-6 sm:px-8 sm:pb-8 lg:pb-12;
 }
 
-.heroTitle {
-  @apply text-4xl uppercase leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
+.heading {
+  @apply uppercase;
   letter-spacing: 0.05em;
+}
+
+.heroHeading {
+  @apply text-4xl leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
 }
 
 .heroTitleBreak {
   display: block;
 }
 
-.heroText {
-  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
+.subheading {
+  @apply text-2xl font-semibold leading-tight;
+  color: #111111;
+}
+
+.bodyTexts {
+  color: #000000;
   font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.heroBodyTexts {
+  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
 }
 
 .aboutSection {
   @apply w-full;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
 }
 
 .aboutContainer {
   @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 md:py-20;
 }
 
-.sectionTitle {
-  @apply text-center text-4xl uppercase sm:text-5xl;
+.sectionHeading {
+  @apply text-center text-4xl sm:text-5xl;
   color: #50a7a4;
-  letter-spacing: 0.05em;
 }
 
-.sectionLead {
+.sectionBodyTexts {
   @apply mx-auto mt-5 max-w-3xl text-center text-base leading-7;
-  color: #232323;
 }
 
 .affiliationGrid {
@@ -65,26 +76,23 @@
   grid-template-columns: 1fr;
 }
 
-.affiliationMedia {
+.affiliationMedia,
+.goalsMedia {
   @apply w-full overflow-hidden rounded-sm;
 }
 
-.affiliationImage {
+.affiliationImage,
+.goalsImage {
   @apply h-auto w-full object-cover;
 }
 
-.affiliationTextCol {
+.affiliationTextCol,
+.goalsTextCol {
   @apply w-full;
 }
 
-.affiliationTitle {
-  @apply text-3xl font-semibold leading-tight;
-  color: #111111;
-}
-
-.affiliationBody {
-  @apply mt-4 text-lg leading-8;
-  color: #232323;
+.affiliationBodyTexts {
+  @apply mx-auto mt-5 max-w-3xl text-base leading-7;
 }
 
 .goalsGrid {
@@ -92,36 +100,18 @@
   grid-template-columns: 1fr;
 }
 
-.goalsTextCol {
-  @apply w-full;
-}
-
-.goalsTitle {
-  @apply text-2xl font-semibold leading-tight;
-  color: #111111;
-}
-
 .goalBlock {
   @apply mt-8;
 }
 
 .goalHeading {
-  @apply text-xl uppercase leading-[1.25];
+  @apply text-xl leading-[1.25];
   color: #50a7a4;
   letter-spacing: 0.02em;
 }
 
-.goalBody {
+.goalBodyTexts {
   @apply mt-3 text-base leading-7;
-  color: #232323;
-}
-
-.goalsMedia {
-  @apply w-full overflow-hidden rounded-sm;
-}
-
-.goalsImage {
-  @apply h-auto w-full object-cover;
 }
 
 @media (min-width: 900px) {
@@ -145,31 +135,27 @@
     @apply px-4 pb-6;
   }
 
+  .heroBodyTexts {
+    @apply mt-3 text-sm leading-6;
+  }
+
   .aboutContainer {
     @apply px-4 py-10;
   }
 
-  .sectionLead {
+  .sectionBodyTexts {
     @apply text-sm leading-6;
   }
 
-  .affiliationTitle {
-    @apply text-2xl;
-  }
-
-  .affiliationBody {
+  .affiliationBodyTexts {
     @apply text-base leading-7;
-  }
-
-  .goalsTitle {
-    @apply text-2xl;
   }
 
   .goalHeading {
     @apply text-lg;
   }
 
-  .goalBody {
+  .goalBodyTexts {
     @apply text-sm leading-6;
   }
 }

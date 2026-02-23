@@ -28,38 +28,48 @@
   transform: translateY(-8%);
 }
 
-.heroTitle {
-  @apply text-4xl uppercase leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
+.heading {
+  @apply uppercase;
   letter-spacing: 0.05em;
 }
 
-.heroTitleBreak {
-  display: block;
+.heroHeading {
+  @apply text-4xl leading-[0.95] text-amber-500 sm:text-5xl lg:text-6xl;
 }
 
-.heroText {
-  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
+.subheading {
+  @apply text-2xl font-semibold leading-tight;
+  color: #121212;
+}
+
+.bodyTexts {
+  color: #000000;
   font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.affiliateSection {
+.heroBodyTexts {
+  @apply mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base;
+}
+
+.affiliateSection,
+.bookingSection,
+.visaSection,
+.inquirySection {
   @apply w-full;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
 }
 
 .affiliateContainer {
   @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20;
 }
 
-.affiliateTitle {
-  @apply mx-auto max-w-3xl text-center text-4xl uppercase leading-[1.1] sm:text-5xl;
-  color: #50a7a4;
+.sectionHeading {
+  @apply mx-auto max-w-3xl text-center text-4xl leading-[1.1] text-[#50a7a4] sm:text-5xl;
   letter-spacing: 0.04em;
 }
 
-.affiliateText {
+.sectionBodyTexts {
   @apply mx-auto mt-6 max-w-3xl text-center text-lg leading-8;
-  color: #1f1f1f;
 }
 
 .benefitGrid {
@@ -75,9 +85,179 @@
   @apply mt-1 h-11 w-11 flex-shrink-0 object-contain;
 }
 
-.benefitText {
-  @apply text-2xl leading-tight;
-  color: #121212;
+.bookingContainer {
+  @apply mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20;
+}
+
+.bookingLayout {
+  @apply grid items-center gap-10;
+  grid-template-columns: 1fr;
+}
+
+.bookingTextCol {
+  @apply w-full;
+}
+
+.bookingHeading {
+  @apply text-3xl leading-[1.1] text-[#50a7a4] sm:text-4xl;
+  text-decoration-color: #2d85c9;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.bookingHeadingBreak {
+  display: block;
+}
+
+.bookingBodyTexts {
+  @apply mt-6 max-w-xl text-lg leading-8;
+}
+
+.bookingMedia {
+  @apply w-full overflow-hidden;
+  border-radius: 5px;
+  max-width: 34rem;
+  margin-left: auto;
+}
+
+.bookingImage {
+  @apply block h-auto w-full object-contain;
+}
+
+.visaContainer {
+  @apply mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20;
+}
+
+.visaHeading {
+  @apply text-center text-4xl leading-[1.1] text-[#50a7a4] sm:text-5xl;
+  letter-spacing: 0.04em;
+}
+
+.visaIntroBodyTexts {
+  @apply mx-auto mt-6 max-w-3xl text-center text-lg leading-8;
+}
+
+.visaCardsGrid {
+  @apply mt-12 grid gap-7;
+  grid-template-columns: 1fr;
+}
+
+.visaCard {
+  @apply rounded-md p-6 sm:p-8;
+  border: 1px solid #d8a65a;
+  background-color: transparent;
+}
+
+.visaCardSubheading {
+  @apply text-3xl leading-[1.1] text-[#50a7a4];
+  letter-spacing: 0.03em;
+}
+
+.visaReasonList {
+  @apply mt-7 space-y-5;
+}
+
+.visaReasonItem {
+  @apply flex items-start gap-3;
+}
+
+.pinIcon {
+  @apply mt-[0.2rem] h-6 w-6 flex-shrink-0 object-contain;
+}
+
+.visaReasonBodyTexts {
+  @apply text-2xl leading-snug;
+}
+
+.visaDestinationColumns {
+  @apply mt-7 grid gap-4;
+  grid-template-columns: 1fr;
+}
+
+.visaDestinationList {
+  @apply space-y-1;
+}
+
+.visaDestinationItem {
+  @apply flex items-start gap-2;
+}
+
+.checkVisaIcon {
+  @apply mt-[0.25rem] h-5 w-5 flex-shrink-0 object-contain;
+}
+
+.checkVisaIconSpacer {
+  @apply h-5 w-5 flex-shrink-0;
+}
+
+.visaDestinationBodyTexts {
+  @apply text-2xl leading-snug;
+}
+
+.inquiryContainer {
+  @apply mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20;
+}
+
+.inquiryLayout {
+  @apply grid items-start gap-8;
+  grid-template-columns: 1fr;
+}
+
+.inquiryInfoCol {
+  @apply w-full;
+}
+
+.inquiryHeading {
+  @apply text-4xl leading-[1.05] text-[#50a7a4] sm:text-5xl;
+  letter-spacing: 0.04em;
+}
+
+.inquiryInfoList {
+  @apply mt-5 flex flex-col gap-4;
+}
+
+.inquiryInfoItem {
+  @apply flex items-center gap-3 text-base leading-7;
+  color: #2d2d2d;
+}
+
+.inquiryInfoIcon {
+  @apply h-6 w-6 flex-shrink-0 object-contain;
+}
+
+.inquiryFormCol {
+  @apply w-full;
+}
+
+.inquiryFormShell {
+  @apply rounded-md p-6 sm:p-8;
+  border: 1px solid #8ccfcf;
+}
+
+.inquiryFormRow {
+  @apply grid gap-5;
+  grid-template-columns: 1fr;
+}
+
+.inquiryField {
+  @apply w-full rounded-none px-4 py-2 text-xl outline-none;
+  border: 1px solid #d89b2e;
+  color: #2d2d2d;
+  background-color: #ffffff;
+}
+
+.inquiryMessageField {
+  @apply mt-5 w-full rounded-none px-4 py-3 text-xl outline-none;
+  min-height: 10rem;
+  border: 1px solid #d89b2e;
+  color: #2d2d2d;
+  background-color: #ffffff;
+  resize: none;
+}
+
+.inquiryField::placeholder,
+.inquiryMessageField::placeholder {
+  color: #8f8f8f;
 }
 
 @media (min-width: 768px) {
@@ -85,6 +265,31 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 4rem;
     row-gap: 3rem;
+  }
+}
+
+@media (min-width: 980px) {
+  .bookingLayout {
+    grid-template-columns: 0.95fr 1.2fr;
+    gap: 2.5rem;
+  }
+
+  .visaCardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .visaDestinationColumns {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+  }
+
+  .inquiryLayout {
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: 2.5rem;
+  }
+
+  .inquiryFormRow {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -102,11 +307,11 @@
     transform: translateY(-5%);
   }
 
-  .heroTitle {
+  .heroHeading {
     @apply text-3xl;
   }
 
-  .heroText {
+  .heroBodyTexts {
     @apply mt-3 text-sm leading-6;
   }
 
@@ -114,11 +319,11 @@
     @apply px-4 py-10;
   }
 
-  .affiliateTitle {
+  .sectionHeading {
     @apply text-3xl;
   }
 
-  .affiliateText {
+  .sectionBodyTexts {
     @apply mt-4 text-base leading-7;
   }
 
@@ -126,7 +331,96 @@
     @apply mt-10 gap-8;
   }
 
-  .benefitText {
+  .subheading {
     @apply text-xl leading-snug;
+  }
+
+  .bookingContainer {
+    @apply px-4 pb-10;
+  }
+
+  .bookingLayout {
+    @apply gap-6;
+  }
+
+  .bookingHeading {
+    @apply text-2xl;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .bookingBodyTexts {
+    @apply mt-4 text-base leading-7;
+  }
+
+  .bookingMedia {
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .visaContainer {
+    @apply px-4 pb-10;
+  }
+
+  .visaHeading {
+    @apply text-3xl;
+  }
+
+  .visaIntroBodyTexts {
+    @apply mt-4 text-base leading-7;
+  }
+
+  .visaCardsGrid {
+    @apply mt-8 gap-5;
+  }
+
+  .visaCard {
+    @apply p-5;
+  }
+
+  .visaCardSubheading {
+    @apply text-2xl;
+  }
+
+  .visaReasonList {
+    @apply mt-5 space-y-4;
+  }
+
+  .visaReasonBodyTexts {
+    @apply text-xl;
+  }
+
+  .visaDestinationColumns {
+    @apply mt-5 gap-3;
+  }
+
+  .visaDestinationBodyTexts {
+    @apply text-xl;
+  }
+
+  .inquiryContainer {
+    @apply px-4 pb-10;
+  }
+
+  .inquiryHeading {
+    @apply text-3xl;
+  }
+
+  .inquiryFormShell {
+    @apply p-4;
+  }
+
+  .inquiryFormRow {
+    @apply gap-4;
+  }
+
+  .inquiryField {
+    @apply text-base;
+  }
+
+  .inquiryMessageField {
+    @apply mt-4 text-base;
+    min-height: 9rem;
   }
 }

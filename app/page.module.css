@@ -50,14 +50,13 @@
   @apply mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-0;
 }
 
-.mediaFrame {
+.mediaFrame,
+.mediaFrameAlt {
   @apply relative w-full overflow-hidden rounded-md;
   aspect-ratio: 16 / 9;
 }
 
 .mediaFrameAlt {
-  @apply relative w-full overflow-hidden rounded-md;
-  aspect-ratio: 16 / 9;
   order: 1;
 }
 
@@ -85,12 +84,12 @@
   transform: scale(1.05);
 }
 
-.textCol {
+.textCol,
+.textColAlt {
   @apply flex flex-col items-start gap-4;
 }
 
 .textColAlt {
-  @apply flex flex-col items-start gap-4;
   order: 2;
 }
 
@@ -175,7 +174,8 @@
   order: 2;
 }
 
-.inquiryTitle {
+.inquiryTitle,
+.helpTitle {
   @apply text-3xl uppercase;
   color: #50a7a4;
   letter-spacing: 0.06em;
@@ -199,15 +199,9 @@
   order: 1;
 }
 
-.helpTitle {
-  @apply text-3xl uppercase;
-  color: #50a7a4;
-  letter-spacing: 0.06em;
-}
-
 .helpSubtitle {
-  @apply mt-2 text-xl;
-  color: #2d2d2d;
+  @apply max-w-xl text-sm leading-6 sm:text-base;
+  color: #3b3b3b;
 }
 
 .formShell {
