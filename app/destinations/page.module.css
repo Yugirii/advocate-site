@@ -6,26 +6,37 @@
 
 .hero {
   @apply relative h-165 w-full overflow-hidden;
+  isolation: isolate;
 }
 
 .heroImage {
   @apply object-cover;
+  z-index: 0;
 }
 
 .heroOverlay {
-  @apply absolute inset-0 bg-black/45;
+  @apply absolute inset-0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.58) 42%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+  z-index: 10;
 }
 
 .heroContent {
-  @apply absolute inset-0 flex items-center text-white;
-  justify-content: flex-start;
-  text-align: left;
-  padding-left: clamp(1rem, 12vw, 14.5rem);
-  padding-right: 1rem;
+  @apply absolute inset-0 text-white;
+  z-index: 20;
 }
 
 .heroInner {
-  width: min(100%, 42rem);
+  @apply relative mx-auto h-full w-full max-w-6xl px-6 sm:px-8;
+  padding-top: clamp(8rem, 15vh, 6.5rem);
+}
+
+.heroTextBlock {
+  width: min(100%, 52rem);
 }
 
 .heading {
@@ -35,6 +46,9 @@
 
 .heroHeading {
   @apply text-2xl text-amber-500 sm:text-3xl md:text-4xl;
+  margin: 0;
+  line-height: 1.05;
+  
 }
 
 .bodyTexts {
@@ -42,16 +56,84 @@
 }
 
 .heroBodyTexts {
-  @apply mt-4 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base;
+  @apply max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  
+}
+
+.carouselRow {
+  @apply absolute left-1/2 flex items-center justify-center;
+  transform: translateX(-50%);
+  bottom: 1.35rem;
+  width: 39.75rem;
+  max-width: 100%;
+  gap: 1.4rem;
+}
+
+.destinationCard {
+  @apply relative overflow-hidden bg-transparent p-0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.sideCard {
+  width: 9.25rem;
+  height: 13.875rem;
+}
+
+.centerCard {
+  width: 13rem;
+  height: 19.5rem;
+  z-index: 2;
+}
+
+.cardImage {
+  @apply object-cover;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .carouselRow {
+    width: min(100%, 34.5rem);
+    bottom: 1.2rem;
+    gap: 0.85rem;
+  }
+
+  .sideCard {
+    width: 7.4rem;
+    height: 11.1rem;
+  }
+
+  .centerCard {
+    width: 10.1rem;
+    height: 15.15rem;
+  }
 }
 
 @media (max-width: 767px) {
-  .heroContent {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .heroInner {
+    @apply px-4;
+    padding-top: 3.75rem;
   }
 
-  .heroInner {
+  .heroTextBlock {
     width: min(100%, 32rem);
+  }
+
+  .carouselRow {
+    width: min(100%, 19rem);
+    bottom: 1rem;
+    gap: 0.45rem;
+  }
+
+  .sideCard {
+    width: 5.1rem;
+    height: 7.65rem;
+  }
+
+  .centerCard {
+    width: 6.9rem;
+    height: 10.35rem;
   }
 }
