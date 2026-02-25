@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
 
@@ -39,6 +39,8 @@ const destinationSlides = [
 
 export default function DestinationsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
+  const [isSliding, setIsSliding] = useState(false);
   const totalSlides = destinationSlides.length;
 
   const activeSlide = destinationSlides[activeIndex];
@@ -46,6 +48,22 @@ export default function DestinationsPage() {
   const rightIndex = (activeIndex + 1) % totalSlides;
   const leftSlide = destinationSlides[leftIndex];
   const rightSlide = destinationSlides[rightIndex];
+
+  useEffect(() => {
+    if (!isSliding) return;
+
+    const timeout = window.setTimeout(() => {
+      setIsSliding(false);
+    }, 320);
+
+    return () => window.clearTimeout(timeout);
+  }, [isSliding]);
+
+  const moveToSlide = (nextIndex: number, direction: "left" | "right") => {
+    setSlideDirection(direction);
+    setActiveIndex(nextIndex);
+    setIsSliding(true);
+  };
 
   return (
     <main className={styles.main}>
@@ -74,12 +92,20 @@ export default function DestinationsPage() {
               </p>
             </div>
 
-            <div className={styles.carouselRow}>
+            <div
+              className={`${styles.carouselRow} ${
+                isSliding
+                  ? slideDirection === "right"
+                    ? styles.slideRight
+                    : styles.slideLeft
+                  : ""
+              }`}
+            >
               <button
                 type="button"
                 className={`${styles.destinationCard} ${styles.sideCard}`}
                 aria-label={`Show ${leftSlide.title} destinations`}
-                onClick={() => setActiveIndex(leftIndex)}
+                onClick={() => moveToSlide(leftIndex, "left")}
               >
                 <Image
                   src={leftSlide.foreground}
@@ -108,7 +134,7 @@ export default function DestinationsPage() {
                 type="button"
                 className={`${styles.destinationCard} ${styles.sideCard}`}
                 aria-label={`Show ${rightSlide.title} destinations`}
-                onClick={() => setActiveIndex(rightIndex)}
+                onClick={() => moveToSlide(rightIndex, "right")}
               >
                 <Image
                   src={rightSlide.foreground}

@@ -7,13 +7,6 @@ const legalLinks = [
   
 ];
 
-const socialLinks = [
-  { href: "#", label: "Facebook", icon: "/Images/facebookIcon.png" },
-  { href: "#", label: "Instagram", icon: "/Images/instagramIcon.png" },
-  { href: "#", label: "TikTok", icon: "/Images/tiktokIcon.png" },
-  { href: "#", label: "Messenger", icon: "/Images/messengerIcon.png" },
-];
-
 const exploreLinks = [
   { href: "/destinations/domestic", label: "Domestic" },
   { href: "/destinations/international", label: "International" },
@@ -25,7 +18,7 @@ const footerLinkClass =
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#50A7A4] text-white">
+    <footer id="site-footer" className="w-full bg-[#50A7A4] text-white">
       <div className="mx-auto w-full max-w-6xl px-6 py-12 md:px-8 md:py-14">
         <div className="flex items-start justify-between gap-6">
           <Link href="/" className="inline-flex">
@@ -76,24 +69,11 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <div className="flex items-center gap-3 md:mt-1 md:justify-self-end">
-            {socialLinks.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                className="inline-flex h-8 w-8 items-center justify-center transition-all duration-200 ease-out hover:-translate-y-px hover:opacity-85"
-              >
-                <Image
-                  src={item.icon}
-                  alt={item.label}
-                  width={28}
-                  height={28}
-                  className="h-7 w-7 object-contain"
-                />
-              </Link>
-            ))}
-          </div>
+          <div
+            id="footer-social-anchor"
+            aria-hidden="true"
+            className="h-8 w-[176px] md:mt-1 md:justify-self-end"
+          />
           
         </div>
 
