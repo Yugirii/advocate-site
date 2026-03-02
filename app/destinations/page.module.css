@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .main {
-  @apply min-h-screen;
+  @apply min-h-screen bg-white;
 }
 
 .hero {
@@ -52,6 +52,7 @@
 }
 
 .bodyTexts {
+  color: #000000;
   font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -81,10 +82,15 @@
 }
 
 .destinationCard {
-  @apply relative overflow-hidden bg-transparent p-0;
+  @apply relative bg-transparent p-0;
   border-radius: 12px;
   border: none;
   cursor: pointer;
+}
+
+.cardMedia {
+  @apply relative block h-full w-full overflow-hidden;
+  border-radius: 12px;
 }
 
 .sideCard {
@@ -100,6 +106,41 @@
 
 .cardImage {
   @apply object-cover;
+}
+
+.cardLabel {
+  @apply pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center px-3 text-center text-xs font-semibold leading-tight tracking-[0.01em] text-zinc-900;
+  min-height: 4.9rem;
+  border-radius: 0 0 12px 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 200ms ease, transform 240ms ease;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.destinationCard:hover .cardLabel,
+.destinationCard:focus-visible .cardLabel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popularSection {
+  @apply w-full bg-white;
+}
+
+.popularContainer {
+  @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16;
+}
+
+.popularHeading {
+  @apply text-3xl leading-[1.08] text-[#50a7a4] sm:text-4xl md:text-5xl;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.popularBodyTexts {
+  @apply mt-5 max-w-5xl text-base leading-7 text-black sm:text-lg sm:leading-8;
+  margin-bottom: 0;
 }
 
 @keyframes carousel-slide-right {
@@ -175,5 +216,24 @@
   .centerCard {
     width: 6.9rem;
     height: 10.35rem;
+  }
+
+  .cardLabel {
+    min-height: 2.35rem;
+    font-size: 0.58rem;
+    padding-inline: 0.35rem;
+  }
+
+  .popularContainer {
+    @apply px-4 py-10;
+  }
+
+  .popularHeading {
+    @apply text-2xl;
+    letter-spacing: 0.03em;
+  }
+
+  .popularBodyTexts {
+    @apply mt-4 text-base leading-7;
   }
 }

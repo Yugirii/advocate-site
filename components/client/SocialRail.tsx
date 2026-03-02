@@ -14,15 +14,23 @@ const socialLinks = [
 const FLOAT_RIGHT_OFFSET = 44;
 const FLOAT_BOTTOM_OFFSET = 16;
 const DOCK_TRIGGER_BOTTOM_OFFSET = 32;
-const MIN_VIEWPORT_PADDING = 16;
 const MOVE_DURATION_MS = 360;
+const INITIAL_SETTLE_MS = 140;
 
 export default function SocialRail() {
   const railRef = useRef<HTMLDivElement | null>(null);
   const dockedRef = useRef(false);
+  const initializedRef = useRef(false);
+  const pageReadyRef = useRef(false);
+  const dockingTimerRef = useRef<number | null>(null);
   const [isDocked, setIsDocked] = useState(false);
-  const [left, setLeft] = useState(0);
-  const [top, setTop] = useState(0);
+  const [isDocking, setIsDocking] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isSettled, setIsSettled] = useState(false);
+  const [floatLeft, setFloatLeft] = useState(0);
+  const [floatTop, setFloatTop] = useState(0);
+  const [dockLeft, setDockLeft] = useState(0);
+  const [dockTop, setDockTop] = useState(0);
 
   useEffect(() => {
     const footer = document.getElementById("site-footer");
@@ -31,8 +39,11 @@ export default function SocialRail() {
     if (!footer || !anchor || !railEl) return;
 
     let rafId: number | null = null;
+    let settleTimer: number | null = null;
 
-    const measure = (source: "initial" | "scroll" | "resize") => {
+    pageReadyRef.current = document.readyState === "complete";
+
+    const measure = () => {
       const railRect = railRef.current?.getBoundingClientRect();
       const railWidth = railRect?.width ?? 36;
       const railHeight = railRect?.height ?? 36;
@@ -41,53 +52,81 @@ export default function SocialRail() {
       const floatTop = window.innerHeight - FLOAT_BOTTOM_OFFSET - railHeight;
 
       const anchorRect = anchor.getBoundingClientRect();
-      const shouldDock = anchorRect.top <= window.innerHeight - DOCK_TRIGGER_BOTTOM_OFFSET;
+      const shouldDock =
+        pageReadyRef.current &&
+        anchorRect.top <= window.innerHeight - DOCK_TRIGGER_BOTTOM_OFFSET;
 
       if (shouldDock) {
-        const nextLeft = Math.max(
-          MIN_VIEWPORT_PADDING,
-          Math.min(anchorRect.left, window.innerWidth - railWidth - MIN_VIEWPORT_PADDING),
-        );
-        const nextTop = Math.max(
-          MIN_VIEWPORT_PADDING,
-          Math.min(anchorRect.top, window.innerHeight - railHeight - MIN_VIEWPORT_PADDING),
-        );
-
-        // Lock position once docked during scroll, and only update during resize/initial measurement.
-        if (!dockedRef.current || source !== "scroll") {
-          setLeft(nextLeft);
-          setTop(nextTop);
-        }
+        // Keep dock coordinates in viewport space so we avoid switching coordinate systems.
+        const nextDockLeft = anchorRect.left;
+        const nextDockTop = anchorRect.top;
+        setDockLeft(nextDockLeft);
+        setDockTop(nextDockTop);
 
         if (!dockedRef.current) {
           dockedRef.current = true;
           setIsDocked(true);
+          setIsDocking(true);
+          if (dockingTimerRef.current !== null) {
+            window.clearTimeout(dockingTimerRef.current);
+          }
+          dockingTimerRef.current = window.setTimeout(() => {
+            setIsDocking(false);
+            dockingTimerRef.current = null;
+          }, MOVE_DURATION_MS);
+        }
+
+        if (!initializedRef.current) {
+          initializedRef.current = true;
+          setIsInitialized(true);
+          settleTimer = window.setTimeout(() => {
+            setIsSettled(true);
+          }, INITIAL_SETTLE_MS);
         }
         return;
       }
 
-      setLeft(floatLeft);
-      setTop(floatTop);
+      setFloatLeft(floatLeft);
+      setFloatTop(floatTop);
 
       if (dockedRef.current) {
         dockedRef.current = false;
         setIsDocked(false);
+        setIsDocking(false);
+        if (dockingTimerRef.current !== null) {
+          window.clearTimeout(dockingTimerRef.current);
+          dockingTimerRef.current = null;
+        }
+      }
+
+      if (!initializedRef.current) {
+        initializedRef.current = true;
+        setIsInitialized(true);
+        settleTimer = window.setTimeout(() => {
+          setIsSettled(true);
+        }, INITIAL_SETTLE_MS);
       }
     };
 
     const onViewportChange = () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => measure("scroll"));
+      rafId = requestAnimationFrame(() => measure());
     };
 
     const onResize = () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => measure("resize"));
+      rafId = requestAnimationFrame(() => measure());
     };
 
-    measure("initial");
+    const onLoad = () => {
+      pageReadyRef.current = true;
+      onResize();
+    };
+
+    measure();
     window.addEventListener("scroll", onViewportChange, { passive: true });
     window.addEventListener("resize", onResize);
+    window.addEventListener("load", onLoad, { once: true });
     const resizeObserver = new ResizeObserver(onResize);
     resizeObserver.observe(footer);
     resizeObserver.observe(anchor);
@@ -95,21 +134,36 @@ export default function SocialRail() {
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
+      if (settleTimer !== null) window.clearTimeout(settleTimer);
+      if (dockingTimerRef.current !== null) {
+        window.clearTimeout(dockingTimerRef.current);
+        dockingTimerRef.current = null;
+      }
       window.removeEventListener("scroll", onViewportChange);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onLoad);
       resizeObserver.disconnect();
     };
   }, []);
 
   const railStyle = useMemo(() => {
+    const shouldAnimate = isSettled && (isDocking || !isDocked);
+    const sharedStyle = {
+      transition: shouldAnimate
+        ? `left ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`
+        : "none",
+      willChange: "left, top",
+      opacity: isInitialized && isSettled ? 1 : 0,
+      pointerEvents: isInitialized && isSettled ? "auto" : "none",
+    };
+
     return {
       position: "fixed" as const,
-      left: `${left}px`,
-      top: `${top}px`,
-      transition: `left ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-      willChange: "left, top",
+      left: `${isDocked ? dockLeft : floatLeft}px`,
+      top: `${isDocked ? dockTop : floatTop}px`,
+      ...sharedStyle,
     };
-  }, [left, top]);
+  }, [dockLeft, dockTop, floatLeft, floatTop, isDocked, isDocking, isInitialized, isSettled]);
 
   return (
     <div

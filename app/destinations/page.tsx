@@ -14,6 +14,7 @@ const destinationSlides = [
   {
     id: "international",
     title: "international",
+    label: "International Destinations",
     foreground: "/Images/tourpackageInternational.jpg",
     background: "/Images/tourpackageInternationalbackground.jpg",
     foregroundAlt: "International destination package preview",
@@ -22,6 +23,7 @@ const destinationSlides = [
   {
     id: "domestic",
     title: "domestic",
+    label: "Domestic Destinations",
     foreground: "/Images/tourpackagedomestic.jpg",
     background: "/Images/tourpackagedomesticbackground.jpg",
     foregroundAlt: "Domestic destination package preview",
@@ -30,6 +32,7 @@ const destinationSlides = [
   {
     id: "cruise",
     title: "cruise",
+    label: "Cruise",
     foreground: "/Images/tourpackagecruise.jpg",
     background: "/Images/tourpackagecruisebackground.jpg",
     foregroundAlt: "Cruise destination package preview",
@@ -107,12 +110,15 @@ export default function DestinationsPage() {
                 aria-label={`Show ${leftSlide.title} destinations`}
                 onClick={() => moveToSlide(leftIndex, "left")}
               >
-                <Image
-                  src={leftSlide.foreground}
-                  alt={leftSlide.foregroundAlt}
-                  fill
-                  className={styles.cardImage}
-                />
+                <span className={styles.cardMedia}>
+                  <Image
+                    src={leftSlide.foreground}
+                    alt={leftSlide.foregroundAlt}
+                    fill
+                    className={styles.cardImage}
+                  />
+                </span>
+                <span className={styles.cardLabel}>{leftSlide.label}</span>
               </button>
 
               <button
@@ -122,12 +128,15 @@ export default function DestinationsPage() {
                 aria-current="true"
                 onClick={() => setActiveIndex(activeIndex)}
               >
-                <Image
-                  src={activeSlide.foreground}
-                  alt={activeSlide.foregroundAlt}
-                  fill
-                  className={styles.cardImage}
-                />
+                <span className={styles.cardMedia}>
+                  <Image
+                    src={activeSlide.foreground}
+                    alt={activeSlide.foregroundAlt}
+                    fill
+                    className={styles.cardImage}
+                  />
+                </span>
+                <span className={styles.cardLabel}>{activeSlide.label}</span>
               </button>
 
               <button
@@ -136,15 +145,31 @@ export default function DestinationsPage() {
                 aria-label={`Show ${rightSlide.title} destinations`}
                 onClick={() => moveToSlide(rightIndex, "right")}
               >
-                <Image
-                  src={rightSlide.foreground}
-                  alt={rightSlide.foregroundAlt}
-                  fill
-                  className={styles.cardImage}
-                />
+                <span className={styles.cardMedia}>
+                  <Image
+                    src={rightSlide.foreground}
+                    alt={rightSlide.foregroundAlt}
+                    fill
+                    className={styles.cardImage}
+                  />
+                </span>
+                <span className={styles.cardLabel}>{rightSlide.label}</span>
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.popularSection}>
+        <div className={styles.popularContainer}>
+          <h2 className={`${holtwood.className} ${styles.heading} ${styles.popularHeading}`}>
+            Explore Popular Destinations
+          </h2>
+          <p className={`${styles.bodyTexts} ${styles.popularBodyTexts}`}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
+            consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+          </p>
         </div>
       </section>
     </main>
