@@ -1,75 +1,58 @@
 @reference "tailwindcss";
 
-.main {
-  @apply min-h-screen bg-white;
-}
-
 .hero {
-  @apply relative h-165 w-full overflow-hidden;
+  position: relative;
+  width: 100%;
+  height: 41.25rem;
+  overflow: hidden;
   isolation: isolate;
 }
 
 .heroImage {
-  @apply object-cover;
+  object-fit: cover;
   z-index: 0;
 }
 
 .heroOverlay {
-  @apply absolute inset-0;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.78) 0%,
     rgba(0, 0, 0, 0.58) 42%,
     rgba(0, 0, 0, 0.62) 100%
   );
-  z-index: 10;
 }
 
 .heroContent {
-  @apply absolute inset-0 text-white;
+  position: absolute;
+  inset: 0;
   z-index: 20;
+  color: #ffffff;
 }
 
 .heroInner {
-  @apply relative mx-auto h-full w-full max-w-6xl px-6 sm:px-8;
-  padding-top: clamp(8rem, 15vh, 6.5rem);
-}
-
-.heroTextBlock {
-  width: min(100%, 52rem);
-}
-
-.heading {
-  @apply uppercase;
-  letter-spacing: 0.1em;
-}
-
-.heroHeading {
-  @apply text-2xl text-amber-500 sm:text-3xl md:text-4xl;
-  margin: 0;
-  line-height: 1.05;
-  
-}
-
-.bodyTexts {
-  color: #000000;
-  font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-.heroBodyTexts {
-  @apply max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base;
-  margin-top: 1rem;
-  margin-bottom: 0;
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-top: clamp(6.5rem, 15vh, 8rem);
 }
 
 .carouselRow {
-  @apply absolute left-1/2 flex items-center justify-center;
-  transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
   bottom: 1.35rem;
+  display: flex;
   width: 39.75rem;
   max-width: 100%;
   gap: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
   will-change: transform, opacity;
 }
 
@@ -82,14 +65,20 @@
 }
 
 .destinationCard {
-  @apply relative bg-transparent p-0;
-  border-radius: 12px;
+  position: relative;
   border: none;
+  border-radius: 12px;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
 }
 
 .cardMedia {
-  @apply relative block h-full w-full overflow-hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   border-radius: 12px;
 }
 
@@ -102,45 +91,192 @@
   width: 13rem;
   height: 19.5rem;
   z-index: 2;
+  cursor: default;
 }
 
 .cardImage {
-  @apply object-cover;
+  object-fit: cover;
 }
 
 .cardLabel {
-  @apply pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center px-3 text-center text-xs font-semibold leading-tight tracking-[0.01em] text-zinc-900;
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
   min-height: 4.9rem;
   border-radius: 0 0 12px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.75rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: rgb(24 24 27);
+  pointer-events: none;
+  visibility: hidden;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 200ms ease, transform 240ms ease;
-  background: rgba(255, 255, 255, 0.96);
+  transition: opacity 200ms ease, transform 240ms ease, visibility 200ms ease;
 }
 
-.destinationCard:hover .cardLabel,
-.destinationCard:focus-visible .cardLabel {
+.centerCard:hover .cardLabel,
+.centerCard:focus-within .cardLabel {
+  pointer-events: auto;
+  visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 
-.popularSection {
-  @apply w-full bg-white;
+.cardLabelLink {
+  position: relative;
+  display: inline-block;
+  color: rgb(24 24 27);
+  text-decoration: none;
+  transition: color 200ms ease;
 }
 
-.popularContainer {
-  @apply mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16;
+.cardLabelLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 100%;
+  height: 2px;
+  background-color: #e39727;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
 }
 
-.popularHeading {
-  @apply text-3xl leading-[1.08] text-[#50a7a4] sm:text-4xl md:text-5xl;
-  letter-spacing: 0.04em;
-  margin: 0;
+.cardLabelLink:hover,
+.cardLabelLink:focus-visible {
+  color: #e39727;
 }
 
-.popularBodyTexts {
-  @apply mt-5 max-w-5xl text-base leading-7 text-black sm:text-lg sm:leading-8;
-  margin-bottom: 0;
+.cardLabelLink:hover::after,
+.cardLabelLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.collageFrame {
+  --figma-scale: 0.72;
+  position: relative;
+  width: min(100%, calc(446px * var(--figma-scale)));
+  height: calc(358px * var(--figma-scale));
+  margin-top: 0.65rem;
+  margin-inline: auto;
+}
+
+.collageCard {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+}
+
+.collageImage {
+  object-fit: cover;
+}
+
+.cardBridge {
+  width: calc(232.91px * var(--figma-scale));
+  height: calc(261.2px * var(--figma-scale));
+  left: calc(28px * var(--figma-scale));
+  top: calc(9px * var(--figma-scale));
+  z-index: 1;
+  transform: rotate(-9deg);
+}
+
+.cardAutumn {
+  width: calc(195px * var(--figma-scale));
+  height: calc(214px * var(--figma-scale));
+  right: calc(16px * var(--figma-scale));
+  top: calc(8px * var(--figma-scale));
+  z-index: 4;
+  transform: rotate(2deg);
+}
+
+.cardSafari {
+  width: calc(302.52px * var(--figma-scale));
+  height: calc(189.07px * var(--figma-scale));
+  left: calc(107px * var(--figma-scale));
+  top: calc(168px * var(--figma-scale));
+  z-index: 3;
+  transform: rotate(-11deg);
+}
+
+.domesticCollageFrame {
+  position: relative;
+  width: min(100%, 25.25rem);
+  height: 14rem;
+  margin-top: 0.55rem;
+  margin-inline: auto;
+}
+
+.domesticCollageCard {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.domesticCardLeft {
+  width: 10.875rem;
+  height: 10.375rem;
+  left: 0;
+  top: 1rem;
+  z-index: 1;
+}
+
+.domesticCardCenter {
+  width: 10.875rem;
+  height: 10.5rem;
+  left: 7rem;
+  top: 3rem;
+  z-index: 2;
+}
+
+.domesticCardRight {
+  width: 10.75rem;
+  height: 11.375rem;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.cruiseCollageFrame {
+  --cruise-scale: 0.8;
+  position: relative;
+  width: min(100%, calc(345px * var(--cruise-scale)));
+  height: calc(282px * var(--cruise-scale));
+  margin-top: 0.55rem;
+  margin-inline: auto;
+}
+
+.cruiseCollageCard {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+}
+
+.cruiseCardLeft {
+  width: calc(222px * var(--cruise-scale));
+  height: calc(227px * var(--cruise-scale));
+  left: 0;
+  top: calc(55px * var(--cruise-scale));
+  z-index: 1;
+}
+
+.cruiseCardRight {
+  width: calc(262px * var(--cruise-scale));
+  height: calc(260px * var(--cruise-scale));
+  left: calc(83px * var(--cruise-scale));
+  top: 0;
+  z-index: 2;
 }
 
 @keyframes carousel-slide-right {
@@ -194,12 +330,8 @@
 
 @media (max-width: 767px) {
   .heroInner {
-    @apply px-4;
+    padding-inline: 1rem;
     padding-top: 3.75rem;
-  }
-
-  .heroTextBlock {
-    width: min(100%, 32rem);
   }
 
   .carouselRow {
@@ -224,16 +356,35 @@
     padding-inline: 0.35rem;
   }
 
-  .popularContainer {
-    @apply px-4 py-10;
+  .collageFrame {
+    --figma-scale: 0.57;
   }
 
-  .popularHeading {
-    @apply text-2xl;
-    letter-spacing: 0.03em;
+  .domesticCollageFrame {
+    width: min(100%, 22.5rem);
+    height: 13.5rem;
   }
 
-  .popularBodyTexts {
-    @apply mt-4 text-base leading-7;
+  .domesticCardLeft {
+    width: 9.25rem;
+    height: 9rem;
+    top: 1rem;
   }
+
+  .domesticCardCenter {
+    width: 9.25rem;
+    height: 9rem;
+    left: 5.65rem;
+    top: 3.15rem;
+  }
+
+  .domesticCardRight {
+    width: 9.25rem;
+    height: 9.75rem;
+  }
+
+  .cruiseCollageFrame {
+    --cruise-scale: 0.62;
+  }
+
 }

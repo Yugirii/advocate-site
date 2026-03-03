@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
@@ -19,6 +20,7 @@ const destinationSlides = [
     background: "/Images/tourpackageInternationalbackground.jpg",
     foregroundAlt: "International destination package preview",
     backgroundAlt: "International destination background",
+    href: "/destinations/international",
   },
   {
     id: "domestic",
@@ -28,6 +30,7 @@ const destinationSlides = [
     background: "/Images/tourpackagedomesticbackground.jpg",
     foregroundAlt: "Domestic destination package preview",
     backgroundAlt: "Domestic destination background",
+    href: "/destinations/domestic",
   },
   {
     id: "cruise",
@@ -37,6 +40,7 @@ const destinationSlides = [
     background: "/Images/tourpackagecruisebackground.jpg",
     foregroundAlt: "Cruise destination package preview",
     backgroundAlt: "Cruise destination background",
+    href: "/destinations/cruise",
   },
 ] as const;
 
@@ -69,7 +73,7 @@ export default function DestinationsPage() {
   };
 
   return (
-    <main className={styles.main}>
+    <main className="min-h-screen bg-white font-[var(--font-body)] text-black">
       <section className={styles.hero}>
         <Image
           key={activeSlide.background}
@@ -83,11 +87,13 @@ export default function DestinationsPage() {
 
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
-            <div className={styles.heroTextBlock}>
-              <h1 className={`${holtwood.className} ${styles.heading} ${styles.heroHeading}`}>
+            <div className="w-full max-w-[52rem]">
+              <h1
+                className={`${holtwood.className} text-2xl uppercase leading-[1.05] tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
+              >
                 Elevate Your Experience
               </h1>
-              <p className={`${styles.bodyTexts} ${styles.heroBodyTexts}`}>
+              <p className="mt-4 mb-0 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
                 orci, consectetur id nulla et, condimentum lacinia lacus. Class
                 aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -118,15 +124,12 @@ export default function DestinationsPage() {
                     className={styles.cardImage}
                   />
                 </span>
-                <span className={styles.cardLabel}>{leftSlide.label}</span>
               </button>
 
-              <button
-                type="button"
+              <div
                 className={`${styles.destinationCard} ${styles.centerCard}`}
                 aria-label={`Current: ${activeSlide.title} destinations`}
                 aria-current="true"
-                onClick={() => setActiveIndex(activeIndex)}
               >
                 <span className={styles.cardMedia}>
                   <Image
@@ -136,8 +139,12 @@ export default function DestinationsPage() {
                     className={styles.cardImage}
                   />
                 </span>
-                <span className={styles.cardLabel}>{activeSlide.label}</span>
-              </button>
+                <span className={styles.cardLabel}>
+                  <Link href={activeSlide.href} className={styles.cardLabelLink}>
+                    {activeSlide.label}
+                  </Link>
+                </span>
+              </div>
 
               <button
                 type="button"
@@ -153,23 +160,150 @@ export default function DestinationsPage() {
                     className={styles.cardImage}
                   />
                 </span>
-                <span className={styles.cardLabel}>{rightSlide.label}</span>
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.popularSection}>
-        <div className={styles.popularContainer}>
-          <h2 className={`${holtwood.className} ${styles.heading} ${styles.popularHeading}`}>
+      <section className="w-full bg-[#ececec]">
+        <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
+          <h2
+            className={`${holtwood.className} m-0 text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#50a7a4] sm:text-4xl md:text-[3.25rem] max-md:text-2xl max-md:tracking-[0.03em]`}
+          >
             Explore Popular Destinations
           </h2>
-          <p className={`${styles.bodyTexts} ${styles.popularBodyTexts}`}>
+          <p className="m-0 mt-4 max-w-5xl text-base leading-7 text-black">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
             consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
             sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
           </p>
+
+          <h2
+            className={`${holtwood.className} mb-0 mt-11 text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:mt-8 max-md:text-lg`}
+          >
+            Tour Packages
+          </h2>
+
+          <div className="mt-3 grid grid-cols-1 items-start gap-8 min-[992px]:grid-cols-[minmax(22rem,30.5rem)_1fr] min-[992px]:items-center min-[992px]:gap-x-11 max-md:mt-4 max-md:gap-5">
+            <div className="w-full">
+              <h3 className="m-0 text-2xl font-semibold leading-tight text-black">
+                International
+              </h3>
+
+              <div className={styles.collageFrame} aria-hidden="true">
+                <div className={`${styles.collageCard} ${styles.cardBridge}`}>
+                  <Image
+                    src="/Images/sanfrancisco.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+
+                <div className={`${styles.collageCard} ${styles.cardAutumn}`}>
+                  <Image
+                    src="/Images/vancouver.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+
+                <div className={`${styles.collageCard} ${styles.cardSafari}`}>
+                  <Image
+                    src="/Images/safari.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
+              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 items-start gap-8 min-[992px]:grid-cols-[minmax(22rem,30.5rem)_1fr] min-[992px]:items-center min-[992px]:gap-x-11 max-md:mt-10 max-md:gap-5">
+            <div className="w-full">
+              <h3 className="m-0 text-2xl font-semibold leading-tight text-black">
+                Domestic
+              </h3>
+
+              <div className={styles.domesticCollageFrame} aria-hidden="true">
+                <div className={`${styles.domesticCollageCard} ${styles.domesticCardLeft}`}>
+                  <Image
+                    src="/Images/batanes.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+
+                <div className={`${styles.domesticCollageCard} ${styles.domesticCardCenter}`}>
+                  <Image
+                    src="/Images/elnido.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+
+                <div className={`${styles.domesticCollageCard} ${styles.domesticCardRight}`}>
+                  <Image
+                    src="/Images/iloilo.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
+              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 items-start gap-8 min-[992px]:grid-cols-[minmax(22rem,30.5rem)_1fr] min-[992px]:items-center min-[992px]:gap-x-11 max-md:mt-10 max-md:gap-5">
+            <div className="w-full">
+              <h3 className="m-0 text-2xl font-semibold leading-tight text-black">
+                Cruise
+              </h3>
+
+              <div className={styles.cruiseCollageFrame} aria-hidden="true">
+                <div className={`${styles.cruiseCollageCard} ${styles.cruiseCardLeft}`}>
+                  <Image
+                    src="/Images/cruise.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+
+                <div className={`${styles.cruiseCollageCard} ${styles.cruiseCardRight}`}>
+                  <Image
+                    src="/Images/cruisebreakfast.jpg"
+                    alt=""
+                    fill
+                    className={styles.collageImage}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
+              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+          </div>
         </div>
       </section>
     </main>

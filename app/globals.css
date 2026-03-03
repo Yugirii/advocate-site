@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
+  --font-body: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 @theme inline {

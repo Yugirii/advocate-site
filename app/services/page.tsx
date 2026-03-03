@@ -41,7 +41,7 @@ const visaDestinationColumns = [
 
 export default function ServicesPage() {
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} font-[var(--font-body)] text-black`}>
       <section className={styles.hero}>
         <Image
           src="/Images/visaassistance2.jpg"
@@ -54,10 +54,12 @@ export default function ServicesPage() {
 
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
-            <h1 className={`${holtwood.className} ${styles.heading} ${styles.heroHeading}`}>
+            <h1
+              className={`${holtwood.className} uppercase text-4xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-5xl lg:text-6xl max-md:text-3xl`}
+            >
               Explore Our Offerings
             </h1>
-            <p className={`${styles.bodyTexts} ${styles.heroBodyTexts}`}>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base max-md:mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
               orci, consectetur id nulla et, condimentum lacinia lacus. Class
               aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -67,47 +69,53 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className={styles.affiliateSection}>
-        <div className={styles.affiliateContainer}>
-          <h2 className={`${holtwood.className} ${styles.heading} ${styles.sectionHeading}`}>
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20 max-md:px-4 max-md:py-10">
+          <h2
+            className={`${holtwood.className} mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
+          >
             Be an Advoquickfix Affiliate
           </h2>
 
-          <p className={`${styles.bodyTexts} ${styles.sectionBodyTexts}`}>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
             orci, consectetur id nulla et, condimentum lacinia lacus. Class
             aptent taciti sociosqu ad litora torquent per conubia nostra, per
             inceptos himenaeos.
           </p>
 
-          <div className={styles.benefitGrid}>
+          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-12 max-md:mt-10 max-md:gap-8">
             {affiliateBenefits.map((benefit) => (
-              <article key={benefit} className={styles.benefitItem}>
+              <article key={benefit} className="flex items-start gap-4">
                 <Image
                   src="/Images/checkMark.png"
                   alt=""
                   aria-hidden="true"
                   width={44}
                   height={44}
-                  className={styles.benefitIcon}
+                  className="mt-1 h-11 w-11 flex-shrink-0 object-contain"
                 />
-                <p className={styles.subheading}>{benefit}</p>
+                <p className="text-2xl font-semibold leading-tight text-[#121212] max-md:text-xl max-md:leading-snug">
+                  {benefit}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={styles.bookingSection}>
-        <div className={styles.bookingContainer}>
-          <div className={styles.bookingLayout}>
-            <div className={styles.bookingTextCol}>
-              <h2 className={`${holtwood.className} ${styles.heading} ${styles.bookingHeading}`}>
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
+          <div className="grid grid-cols-1 items-center gap-10 min-[980px]:grid-cols-[0.95fr_1.2fr] min-[980px]:gap-10 max-md:gap-6">
+            <div className="w-full">
+              <h2
+                className={`${holtwood.className} uppercase text-3xl leading-[1.1] tracking-[0.05em] text-[#50a7a4] sm:text-4xl max-md:text-2xl underline decoration-[#2d85c9] [text-decoration-thickness:3px] [text-underline-offset:4px] max-md:[text-decoration-thickness:2px] max-md:[text-underline-offset:3px]`}
+              >
                 Get Access to a Travel
-                <span className={styles.bookingHeadingBreak}>Booking Portal</span>
+                <span className="block">Booking Portal</span>
               </h2>
 
-              <p className={`${styles.bodyTexts} ${styles.bookingBodyTexts}`}>
+              <p className="mt-6 max-w-xl text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
                 orci, consectetur id nulla et, condimentum lacinia lacus. Class
                 aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -115,70 +123,76 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className={styles.bookingMedia}>
+            <div className="ml-auto w-full max-w-[34rem] overflow-hidden rounded-[5px] max-md:mx-auto max-md:max-w-96">
               <Image
                 src="/Images/bookingportal.png"
                 alt="Travel booking portal flight search interface"
                 width={697}
                 height={465}
-                className={styles.bookingImage}
+                className="block h-auto w-full object-contain"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.visaSection}>
-        <div className={styles.visaContainer}>
-          <h2 className={`${holtwood.className} ${styles.heading} ${styles.visaHeading}`}>
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
+          <h2
+            className={`${holtwood.className} uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+          >
             Tourist Visa Assistance
           </h2>
 
-          <p className={`${styles.bodyTexts} ${styles.visaIntroBodyTexts}`}>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
             Our Tourist Visa Assistance Services offer professional guidance and
             a smooth, hassle-free visa application experience. With our
             knowledge and expertise, we aim to support you in giving you a
             stress-free trip from preparation to departure.
           </p>
 
-          <div className={styles.visaCardsGrid}>
-            <article className={styles.visaCard}>
-              <h3 className={`${holtwood.className} ${styles.subheading} ${styles.visaCardSubheading}`}>
+          <div className="mt-12 grid grid-cols-1 gap-7 min-[980px]:grid-cols-2 max-md:mt-8 max-md:gap-5">
+            <article className="rounded-md border border-[#d8a65a] bg-transparent p-6 sm:p-8 max-md:p-5">
+              <h3
+                className={`${holtwood.className} text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
+              >
                 Why Choose Us?
               </h3>
 
-              <ul className={styles.visaReasonList}>
+              <ul className="mt-7 space-y-5 max-md:mt-5 max-md:space-y-4">
                 {visaReasons.map((reason) => (
-                  <li key={reason} className={styles.visaReasonItem}>
+                  <li key={reason} className="flex items-start gap-3">
                     <Image
                       src="/Images/pin.png"
                       alt=""
                       aria-hidden="true"
                       width={24}
                       height={24}
-                      className={styles.pinIcon}
+                      className="mt-[0.2rem] h-6 w-6 flex-shrink-0 object-contain"
                     />
-                    <span className={`${styles.bodyTexts} ${styles.visaReasonBodyTexts}`}>{reason}</span>
+                    <span className="text-2xl leading-snug max-md:text-xl">{reason}</span>
                   </li>
                 ))}
               </ul>
             </article>
 
-            <article className={styles.visaCard}>
-              <h3 className={`${holtwood.className} ${styles.subheading} ${styles.visaCardSubheading}`}>
+            <article className="rounded-md border border-[#d8a65a] bg-transparent p-6 sm:p-8 max-md:p-5">
+              <h3
+                className={`${holtwood.className} text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
+              >
                 Top Visa Destinations Available
               </h3>
 
-              <div className={styles.visaDestinationColumns}>
+              <div className="mt-7 grid grid-cols-1 gap-4 min-[980px]:grid-cols-2 min-[980px]:gap-x-10 max-md:mt-5 max-md:gap-3">
                 {visaDestinationColumns.map((column, columnIndex) => (
                   <ul
                     key={`visa-column-${columnIndex + 1}`}
-                    className={styles.visaDestinationList}
+                    className="space-y-1"
                   >
                     {column.map((destination) => (
                       <li
                         key={`${columnIndex + 1}-${destination.label}`}
-                        className={styles.visaDestinationItem}
+                        className="flex items-start gap-2"
                       >
                         {destination.withCheck ? (
                           <Image
@@ -187,12 +201,12 @@ export default function ServicesPage() {
                             aria-hidden="true"
                             width={22}
                             height={22}
-                            className={styles.checkVisaIcon}
+                            className="mt-[0.25rem] h-5 w-5 flex-shrink-0 object-contain"
                           />
                         ) : (
-                          <span className={styles.checkVisaIconSpacer} aria-hidden="true" />
+                          <span className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
                         )}
-                        <span className={`${styles.bodyTexts} ${styles.visaDestinationBodyTexts}`}>
+                        <span className="text-2xl leading-snug max-md:text-xl">
                           {destination.label}
                         </span>
                       </li>
@@ -205,64 +219,66 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className={styles.inquirySection}>
-        <div className={styles.inquiryContainer}>
-          <div className={styles.inquiryLayout}>
-            <aside className={styles.inquiryInfoCol}>
-              <h3 className={`${holtwood.className} ${styles.heading} ${styles.inquiryHeading}`}>
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
+          <div className="grid grid-cols-1 items-start gap-8 min-[980px]:grid-cols-[0.9fr_1.6fr] min-[980px]:gap-10">
+            <aside className="w-full">
+              <h3
+                className={`${holtwood.className} uppercase text-4xl leading-[1.05] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+              >
                 For Inquiries
               </h3>
 
-              <div className={styles.inquiryInfoList}>
-                <p className={`${styles.bodyTexts} ${styles.inquiryInfoItem}`}>
+              <div className="mt-5 flex flex-col gap-4">
+                <p className="flex items-center gap-3 text-base leading-7 text-[#2d2d2d]">
                   <Image
                     src="/Images/emailIcon.png"
                     alt=""
                     aria-hidden="true"
                     width={24}
                     height={24}
-                    className={styles.inquiryInfoIcon}
+                    className="h-6 w-6 flex-shrink-0 object-contain"
                   />
                   advocatetoursandtravel@gmail.com
                 </p>
 
-                <p className={`${styles.bodyTexts} ${styles.inquiryInfoItem}`}>
+                <p className="flex items-center gap-3 text-base leading-7 text-[#2d2d2d]">
                   <Image
                     src="/Images/phoneIcon.png"
                     alt=""
                     aria-hidden="true"
                     width={24}
                     height={24}
-                    className={styles.inquiryInfoIcon}
+                    className="h-6 w-6 flex-shrink-0 object-contain"
                   />
                   +63 905 845 4125
                 </p>
               </div>
             </aside>
 
-            <div className={styles.inquiryFormCol}>
-              <div className={styles.inquiryFormShell}>
-                <div className={styles.inquiryFormRow}>
+            <div className="w-full">
+              <div className="rounded-md border border-[#8ccfcf] p-6 sm:p-8 max-md:p-4">
+                <div className="grid grid-cols-1 gap-5 min-[980px]:grid-cols-3 max-md:gap-4">
                   <input
                     type="text"
                     placeholder="Name"
-                    className={styles.inquiryField}
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
                   />
                   <input
                     type="email"
                     placeholder="Email"
-                    className={styles.inquiryField}
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
                   />
                   <input
                     type="tel"
                     placeholder="Phone"
-                    className={styles.inquiryField}
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
                   />
                 </div>
 
                 <textarea
                   placeholder="Message"
-                  className={styles.inquiryMessageField}
+                  className="mt-5 min-h-40 w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:mt-4 max-md:min-h-36 max-md:text-base"
                 />
               </div>
             </div>
