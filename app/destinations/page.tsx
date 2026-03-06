@@ -73,7 +73,7 @@ export default function DestinationsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white font-[var(--font-body)] text-black">
+    <main className="min-h-screen bg-[var(--background)] font-[var(--font-body)] text-black">
       <section className={styles.hero}>
         <Image
           key={activeSlide.background}
@@ -87,17 +87,14 @@ export default function DestinationsPage() {
 
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
-            <div className="w-full max-w-[52rem]">
+            <div className="w-full max-w-[44rem]">
               <h1
                 className={`${holtwood.className} text-2xl uppercase leading-[1.05] tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
               >
                 Elevate Your Experience
               </h1>
               <p className="mt-4 mb-0 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-                orci, consectetur id nulla et, condimentum lacinia lacus. Class
-                aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos.
+                Discover remarkable destinations and begin your journey toward unforgettable travel experiences.
               </p>
             </div>
 
@@ -166,7 +163,7 @@ export default function DestinationsPage() {
         </div>
       </section>
 
-      <section className="w-full bg-[#ececec]">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
           <h2
             className={`${holtwood.className} m-0 text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#50a7a4] sm:text-4xl md:text-[3.25rem] max-md:text-2xl max-md:tracking-[0.03em]`}
@@ -174,9 +171,10 @@ export default function DestinationsPage() {
             Explore Popular Destinations
           </h2>
           <p className="m-0 mt-4 max-w-5xl text-base leading-7 text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
-            consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            Every destination tells a story. From global landmarks to beautiful 
+            Philippine getaways, unforgettable travel experiences await. 
+            Whether you&apos;re seeking adventure, culture, or relaxation, there&apos;s 
+            always a destination ready to inspire your next journey.
           </p>
 
           <h2
@@ -222,9 +220,9 @@ export default function DestinationsPage() {
             </div>
 
             <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
-              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
-              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+              Discover some of the world’s most exciting destinations. From vibrant cities and famous 
+              landmarks to breathtaking landscapes, international travel offers unforgettable experiences 
+              and cultures waiting to be explored.
             </p>
           </div>
 
@@ -265,9 +263,10 @@ export default function DestinationsPage() {
             </div>
 
             <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
-              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
-              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+              Discover the beauty of the Philippines through its diverse destinations. 
+              Travel closer to home and discover amazing destinations across the 
+              country filled with natural beauty, culture, and unforgettable adventures.
+
             </p>
           </div>
 
@@ -299,9 +298,8 @@ export default function DestinationsPage() {
             </div>
 
             <p className="m-0 max-w-2xl text-base leading-7 text-black min-[992px]:max-w-[34rem]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit orci,
-              consectetur id nulla et, condimentum lacinia lacus. Class aptent taciti
-              sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+              Set sail on an unforgettable journey across beautiful seas and coastal destinations. 
+              Cruise experiences combine travel, relaxation, and entertainment in one incredible adventure.
             </p>
           </div>
         </div>

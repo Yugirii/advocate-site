@@ -55,11 +55,11 @@ export default function ServicesPage() {
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <h1
-              className={`${holtwood.className} uppercase text-4xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-5xl lg:text-6xl max-md:text-3xl`}
+              className={`${holtwood.className} uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
             >
               Explore Our Offerings
             </h1>
-            <p className="mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base max-md:mt-3">
+            <p className="mt-4 max-w-3xl text-sm font-semibold leading-6 text-white/95 sm:text-base max-md:mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
               orci, consectetur id nulla et, condimentum lacinia lacus. Class
               aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -69,7 +69,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20 max-md:px-4 max-md:py-10">
           <h2
             className={`${holtwood.className} mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
@@ -77,7 +77,7 @@ export default function ServicesPage() {
             Be an Advoquickfix Affiliate
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 max-md:mt-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
             orci, consectetur id nulla et, condimentum lacinia lacus. Class
             aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -86,16 +86,16 @@ export default function ServicesPage() {
 
           <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-12 max-md:mt-10 max-md:gap-8">
             {affiliateBenefits.map((benefit) => (
-              <article key={benefit} className="flex items-start gap-4">
+              <article key={benefit} className="flex items-center gap-4">
                 <Image
                   src="/Images/checkMark.png"
                   alt=""
                   aria-hidden="true"
                   width={44}
                   height={44}
-                  className="mt-1 h-11 w-11 flex-shrink-0 object-contain"
+                  className="h-11 w-11 flex-shrink-0 object-contain"
                 />
-                <p className="text-2xl font-semibold leading-tight text-[#121212] max-md:text-xl max-md:leading-snug">
+                <p className="text-base font-semibold leading-7 text-[#121212]">
                   {benefit}
                 </p>
               </article>
@@ -104,18 +104,18 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <div className="grid grid-cols-1 items-center gap-10 min-[980px]:grid-cols-[0.95fr_1.2fr] min-[980px]:gap-10 max-md:gap-6">
             <div className="w-full">
               <h2
-                className={`${holtwood.className} uppercase text-3xl leading-[1.1] tracking-[0.05em] text-[#50a7a4] sm:text-4xl max-md:text-2xl underline decoration-[#2d85c9] [text-decoration-thickness:3px] [text-underline-offset:4px] max-md:[text-decoration-thickness:2px] max-md:[text-underline-offset:3px]`}
+                className={`${holtwood.className} uppercase text-3xl leading-[1.1] tracking-[0.05em] text-[#50a7a4] sm:text-4xl max-md:text-2xl [text-decoration-thickness:3px] [text-underline-offset:4px] max-md:[text-decoration-thickness:2px] max-md:[text-underline-offset:3px]`}
               >
                 Get Access to a Travel
                 <span className="block">Booking Portal</span>
               </h2>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
+              <p className="mt-6 max-w-xl text-base leading-7 max-md:mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
                 orci, consectetur id nulla et, condimentum lacinia lacus. Class
                 aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -136,7 +136,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <h2
             className={`${holtwood.className} uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
@@ -144,7 +144,7 @@ export default function ServicesPage() {
             Tourist Visa Assistance
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 max-md:mt-4 max-md:text-base max-md:leading-7">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 max-md:mt-4">
             Our Tourist Visa Assistance Services offer professional guidance and
             a smooth, hassle-free visa application experience. With our
             knowledge and expertise, we aim to support you in giving you a
@@ -170,7 +170,7 @@ export default function ServicesPage() {
                       height={24}
                       className="mt-[0.2rem] h-6 w-6 flex-shrink-0 object-contain"
                     />
-                    <span className="text-2xl leading-snug max-md:text-xl">{reason}</span>
+                    <span className="text-base leading-7">{reason}</span>
                   </li>
                 ))}
               </ul>
@@ -206,7 +206,7 @@ export default function ServicesPage() {
                         ) : (
                           <span className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
                         )}
-                        <span className="text-2xl leading-snug max-md:text-xl">
+                        <span className="text-base leading-7">
                           {destination.label}
                         </span>
                       </li>
@@ -219,7 +219,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <div className="grid grid-cols-1 items-start gap-8 min-[980px]:grid-cols-[0.9fr_1.6fr] min-[980px]:gap-10">
             <aside className="w-full">
@@ -262,23 +262,23 @@ export default function ServicesPage() {
                   <input
                     type="text"
                     placeholder="Name"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
                   />
                   <input
                     type="email"
                     placeholder="Email"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
                   />
                   <input
                     type="tel"
                     placeholder="Phone"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:text-base"
+                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
                   />
                 </div>
 
                 <textarea
                   placeholder="Message"
-                  className="mt-5 min-h-40 w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-xl text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:mt-4 max-md:min-h-36 max-md:text-base"
+                  className="mt-5 min-h-40 w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:mt-4 max-md:min-h-36"
                 />
               </div>
             </div>

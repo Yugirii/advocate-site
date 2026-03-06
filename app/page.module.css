@@ -37,7 +37,7 @@
   transition: transform 700ms;
 }
 
-.group:hover .zoomMedia {
+:global(.group:hover) .zoomMedia {
   transform: scale(1.05);
 }
 

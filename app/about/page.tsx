@@ -23,12 +23,12 @@ export default function AboutPage() {
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <h1
-              className={`${holtwood.className} uppercase text-4xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-5xl lg:text-6xl`}
+              className={`${holtwood.className} uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
             >
               Affordable Journeys,
               <span className="block">Quality Experiences.</span>
             </h1>
-            <p className="mt-4 max-w-3xl text-sm leading-6 text-white/95 sm:text-base max-md:mt-3">
+            <p className="mt-4 max-w-3xl text-sm font-semibold leading-6 text-white/95 sm:text-base max-md:mt-3">
               We provide individualized travel solutions, competitive pricing,
               and end-to-end support, from planning and documentation to
               ticketing and post-trip assistance, all under the direction of
@@ -38,7 +38,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 md:py-20 max-md:px-4 max-md:py-10">
           <h2
             className={`${holtwood.className} text-center text-4xl uppercase tracking-[0.05em] text-[#50a7a4] sm:text-5xl`}
@@ -135,6 +135,65 @@ export default function AboutPage() {
                 className="h-auto w-full object-cover"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[var(--background)]">
+        <div className="mx-auto w-full max-w-6xl px-6 py-14 text-center">
+          <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
+            Advocate Tours and Travel Incorporated
+          </h2>
+          <p className="mx-auto mt-4 max-w-4xl text-base leading-7 text-[#2d2d2d]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
+            orci, consectetur id nulla et, condimentum lacinia lacus. Class
+            aptent taciti sociosqu ad litora torquent per conubia nostra, per
+            inceptos himenaeos.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-7">
+            <Image
+              src="/Images/Department_of_Tourism.svg"
+              alt="Department of Tourism"
+              width={90}
+              height={90}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/PATA.png"
+              alt="PATA"
+              width={180}
+              height={65}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/PHILTOA.png"
+              alt="PHILTOA"
+              width={200}
+              height={65}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/PTAA.jpg"
+              alt="PTAA"
+              width={170}
+              height={65}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/TPB.png"
+              alt="TPB Philippines"
+              width={135}
+              height={80}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/NAITAS.jpg"
+              alt="NAITAS"
+              width={135}
+              height={80}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
           </div>
         </div>
       </section>

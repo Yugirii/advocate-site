@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-white group">
+      <section className="w-full bg-[var(--background)] group">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[1.1fr_1fr]">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md">
             <Image
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-white group">
+      <section className="w-full bg-[var(--background)] group">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-0 md:grid-cols-[1fr_1.1fr]">
           <div className="order-2 flex flex-col items-start gap-4 md:order-1">
             <h2 className={`${holtwood.className} ${sectionTitleClass}`}>
@@ -91,7 +91,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-white group">
+      <section className="w-full bg-[var(--background)] group">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[1.1fr_1fr]">
           <div className="relative w-full overflow-hidden rounded-md">
             <Image
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-white group">
+      <section className="w-full bg-[var(--background)] group">
         <div className="mx-auto w-full max-w-[80rem] px-6 py-10">
           <div className={`${styles.profileCard} relative overflow-hidden rounded-xl bg-center bg-cover transition-transform duration-700 group-hover:scale-[1.03]`}>
             <div className={styles.profileOverlay} />
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="w-full bg-white">
+      <section id="contact" className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-[80rem] px-6 py-16">
           <div className="grid grid-cols-1 items-start gap-10 min-[1100px]:grid-cols-[0.9fr_2fr] min-[1100px]:gap-16">
             <aside className="order-2 pt-2 min-[1100px]:order-1">
@@ -208,7 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-white">
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 text-center">
           <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
             Advocate Tours and Travel Incorporated
@@ -222,10 +222,10 @@ export default function Home() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-7">
             <Image
-              src="/Images/Department_of_Tourism.svg"
+              src="/Images/DOTsealed.png"
               alt="Department of Tourism"
-              width={90}
-              height={90}
+              width={180}
+              height={65}
               className="h-auto max-h-20 w-auto object-contain"
             />
             <Image
@@ -258,6 +258,13 @@ export default function Home() {
             />
             <Image
               src="/Images/NAITAS.jpg"
+              alt="NAITAS"
+              width={135}
+              height={80}
+              className="h-auto max-h-20 w-auto object-contain"
+            />
+            <Image
+              src="/Images/NITAS.png"
               alt="NAITAS"
               width={135}
               height={80}

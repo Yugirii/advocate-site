@@ -2,7 +2,7 @@
 
 .main {
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--background);
   padding-top: clamp(4.5rem, 8vw, 5.5rem);
 }
 
