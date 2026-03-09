@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 
 const socialLinks = [
   { href: "#", label: "Facebook", icon: "/Images/facebookIcon.png" },
@@ -146,9 +146,9 @@ export default function SocialRail() {
     };
   }, []);
 
-  const railStyle = useMemo(() => {
+  const railStyle = useMemo<CSSProperties>(() => {
     const shouldAnimate = isSettled && (isDocking || !isDocked);
-    const sharedStyle = {
+    const sharedStyle: CSSProperties = {
       transition: shouldAnimate
         ? `left ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOVE_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`
         : "none",
@@ -158,7 +158,7 @@ export default function SocialRail() {
     };
 
     return {
-      position: "fixed" as const,
+      position: "fixed",
       left: `${isDocked ? dockLeft : floatLeft}px`,
       top: `${isDocked ? dockTop : floatTop}px`,
       ...sharedStyle,
