@@ -152,7 +152,7 @@ export default function DestinationsPage() {
                 <span className={styles.cardMedia}>
                   <Image
                     src={rightSlide.foreground}
-                    alt={rightSlide.foregroundAlt}
+                   alt={rightSlide.foregroundAlt}
                     fill
                     className={styles.cardImage}
                   />
@@ -173,7 +173,7 @@ export default function DestinationsPage() {
           <p className="m-0 mt-4 max-w-5xl text-base leading-7 text-black">
             Every destination tells a story. From global landmarks to beautiful 
             Philippine getaways, unforgettable travel experiences await. 
-            Whether you&apos;re seeking adventure, culture, or relaxation, there&apos;s 
+            +Whether you&apos;re seeking adventure, culture, or relaxation, there&apos;s 
             always a destination ready to inspire your next journey.
           </p>
 
