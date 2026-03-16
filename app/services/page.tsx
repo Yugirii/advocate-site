@@ -136,7 +136,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-[var(--background)]">
+      <section
+        id="tourist-visa-assistance"
+        className="w-full scroll-mt-28 bg-[var(--background)]"
+      >
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <h2
             className={`${holtwood.className} uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
@@ -280,6 +283,22 @@ export default function ServicesPage() {
                   placeholder="Message"
                   className="mt-5 min-h-40 w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f] max-md:mt-4 max-md:min-h-36"
                 />
+                <div className="mt-5 flex justify-end">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-md bg-[#50a7a4] px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-[#458f8c]"
+                  >
+                    Send
+                    <Image
+                      src="/Images/sendMessage.png"
+                      alt=""
+                      aria-hidden="true"
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 object-contain"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

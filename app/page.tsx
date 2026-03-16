@@ -58,7 +58,7 @@ export default function Home() {
               Start your travel business with a trusted one-stop partner. Get
               access to tools, training, and support to grow with confidence.
             </p>
-            <Link href="/services" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/services#tourist-visa-assistance" className={`${holtwood.className} ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
               Get step-by-step guidance for your visa requirements with a team
               that makes the process clear, efficient, and stress-free.
             </p>
-            <Link href="/services" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/services#tourist-visa-assistance" className={`${holtwood.className} ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default function Home() {
               unforgettable experiences, whether you seek vibrant cities, serene
               beaches, or cultural treasures.
             </p>
-            <Link href="/services" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/destinations" className={`${holtwood.className} ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -202,6 +202,22 @@ export default function Home() {
                   placeholder="Message"
                   className="mt-6 min-h-[170px] w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-lg text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
                 />
+                <div className="mt-5 flex justify-end">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-md bg-[#50a7a4] px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-[#458f8c]"
+                  >
+                    Send
+                    <Image
+                      src="/Images/sendMessage.png"
+                      alt=""
+                      aria-hidden="true"
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 object-contain"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

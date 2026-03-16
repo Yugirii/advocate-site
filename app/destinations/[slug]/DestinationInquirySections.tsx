@@ -115,16 +115,21 @@ export default function DestinationInquirySections({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState("");
   const [formState, setFormState] = useState<InquiryFormState>(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const openModal = (destinationName: string) => {
     setSelectedDestination(destinationName);
     setIsModalOpen(true);
+    setSubmitError(null);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setFormState(initialFormState);
     setSelectedDestination("");
+    setIsSubmitting(false);
+    setSubmitError(null);
   };
 
   const adjustTravelerCount = (field: TravelerField, delta: number) => {
@@ -138,9 +143,35 @@ export default function DestinationInquirySections({
     setFormState((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    closeModal();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formState,
+          destination: selectedDestination,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json()) as { error?: string };
+        setSubmitError(data.error ?? "Failed to send inquiry. Try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      closeModal();
+    } catch {
+      setSubmitError("Failed to send inquiry. Check your connection.");
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -354,12 +385,17 @@ export default function DestinationInquirySections({
                 />
               </div>
 
+              {submitError ? (
+                <p className="text-sm text-red-600">{submitError}</p>
+              ) : null}
+
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="min-w-[9rem] rounded-md bg-[#50a7a4] px-6 py-2.5 text-xl font-medium text-white transition-colors duration-200 hover:bg-[#458f8c]"
+                  disabled={isSubmitting}
+                  className="min-w-[9rem] rounded-md bg-[#50a7a4] px-6 py-2.5 text-xl font-medium text-white transition-colors duration-200 hover:bg-[#458f8c] disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Submit
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </button>
               </div>
             </form>
