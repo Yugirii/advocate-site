@@ -31,12 +31,12 @@ export default function Navbar({ tone = "light" }: NavbarProps) {
       <div className="absolute left-2 top-1/2 z-20 -translate-y-1/2 sm:left-4 md:left-6 lg:left-8">
         <Link href="/" className="flex items-center">
           <Image
-            src="/Images/companynamenewLogo.png"
+            src="/Images/companyCurrentLogo.png"
             alt="Advocate logo"
-            width={260}
-            height={100}
+            width={220}
+            height={86}
             priority
-            className="h-12 w-auto md:h-16"
+            className="h-8 w-auto md:h-10"
           />
         </Link>
       </div>

@@ -1,14 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 
 const socialLinks = [
-  { href: "#", label: "Facebook", icon: "/Images/facebookIcon.png" },
-  { href: "#", label: "Instagram", icon: "/Images/instagramIcon.png" },
-  { href: "#", label: "TikTok", icon: "/Images/tiktokIcon.png" },
-  { href: "#", label: "Messenger", icon: "/Images/messengerIcon.png" },
+  {
+    href: "https://www.facebook.com/advocatetoursandtravelinc",
+    label: "Facebook",
+    icon: "/Images/facebookIcon.png",
+  },
+  {
+    href: "https://www.instagram.com/advocatetours/",
+    label: "Instagram",
+    icon: "/Images/instagramIcon.png",
+  },
+  {
+    href: "https://www.tiktok.com/@advocatetours",
+    label: "TikTok",
+    icon: "/Images/tiktokIcon.png",
+  },
+  {
+    href: "https://www.messenger.com/t/973421916336751",
+    label: "Messenger",
+    icon: "/Images/messengerIcon.png",
+  },
 ] as const;
 
 const FLOAT_RIGHT_OFFSET = 44;
@@ -173,10 +188,12 @@ export default function SocialRail() {
       style={railStyle}
     >
       {socialLinks.map((item) => (
-        <Link
+        <a
           key={item.label}
           href={item.href}
           aria-label={item.label}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex h-8 w-8 items-center justify-center transition-opacity duration-200 hover:opacity-80 sm:h-9 sm:w-9"
         >
           <Image
@@ -186,7 +203,7 @@ export default function SocialRail() {
             height={36}
             className="h-full w-full object-contain"
           />
-        </Link>
+        </a>
       ))}
     </div>
   );

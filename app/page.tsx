@@ -230,10 +230,10 @@ export default function Home() {
             Advocate Tours and Travel Incorporated
           </h2>
           <p className="mx-auto mt-4 max-w-4xl text-base leading-7 text-[#2d2d2d]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-            orci, consectetur id nulla et, condimentum lacinia lacus. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos.
+            Duly licensed by the Department of Tourism (DOT), we are a proud member of 
+            PATA, PTAA, PHILTOA, TPB Philippines, NAITAS, and NITAS. We are committed to 
+            providing exceptional travel services and fostering strong partnerships within 
+            the travel industry.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-7">

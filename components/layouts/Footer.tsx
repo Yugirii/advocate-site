@@ -23,11 +23,11 @@ export default function Footer() {
         <div className="flex items-start justify-between gap-6">
           <Link href="/" className="inline-flex">
             <Image
-              src="/Images/companynamenewLogo.png"
+              src="/Images/companyHighlightedLogo.png"
               alt="Advocate logo"
-              width={240}
-              height={76}
-              className="h-auto w-[180px] sm:w-[210px]"
+              width={180}
+              height={90}
+              className="h-auto w-[120px] sm:w-[210px]"
             />
           </Link>
 

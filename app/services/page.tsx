@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
+import ScrollToHash from "./ScrollToHash";
 
 const holtwood = Holtwood_One_SC({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ const visaDestinationColumns = [
 export default function ServicesPage() {
   return (
     <main className={`${styles.main} font-[var(--font-body)] text-black`}>
+      <ScrollToHash />
       <section className={styles.hero}>
         <Image
           src="/Images/visaassistance2.jpg"
@@ -60,10 +62,8 @@ export default function ServicesPage() {
               Explore Our Offerings
             </h1>
             <p className="mt-4 max-w-3xl text-sm font-semibold leading-6 text-white/95 sm:text-base max-md:mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-              orci, consectetur id nulla et, condimentum lacinia lacus. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos.
+              We offer a range of services to make your travel experience unforgettable. 
+              From personalized travel planning to visa assistance, we are here to help you every step of the way.
             </p>
           </div>
         </div>
@@ -78,10 +78,9 @@ export default function ServicesPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 max-md:mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-            orci, consectetur id nulla et, condimentum lacinia lacus. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos.
+            Join our affiliate program and start your own travel business with us. 
+            As an Advoquickfix Affiliate, you can earn commissions by promoting our 
+            travel services and sharing the benefits of our offerings with your network.
           </p>
 
           <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-12 max-md:mt-10 max-md:gap-8">
@@ -116,10 +115,11 @@ export default function ServicesPage() {
               </h2>
 
               <p className="mt-6 max-w-xl text-base leading-7 max-md:mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-                orci, consectetur id nulla et, condimentum lacinia lacus. Class
-                aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos.
+                As an Advoquickfix Affiliate, you will gain access to our travel booking portal,
+                allowing you to easily book and manage your clients&apos; travel arrangements.
+                Our user-friendly portal provides access to a wide range of travel options,
+                including flights, hotels, and more, making it easy for you to offer comprehensive
+                travel solutions to your clients.
               </p>
             </div>
 
@@ -136,13 +136,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section
-        id="tourist-visa-assistance"
-        className="w-full scroll-mt-28 bg-[var(--background)]"
-      >
+      <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <h2
-            className={`${holtwood.className} uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+            id="tourist-visa-assistance"
+            className={`${holtwood.className} scroll-mt-24 uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
           >
             Tourist Visa Assistance
           </h2>
