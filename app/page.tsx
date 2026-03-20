@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
+import WebsiteInquiryForm from "../components/client/WebsiteInquiryForm";
 
 const holtwood = Holtwood_One_SC({
   subsets: ["latin"],
@@ -180,44 +181,8 @@ export default function Home() {
                 Kindly message us so we can assist in your travel needs
               </p>
 
-              <div className="mt-5 rounded-md border border-[#8ccfcf] p-8">
-                <div className="grid grid-cols-1 gap-6 min-[1100px]:grid-cols-3">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-lg text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-lg text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone"
-                    className="w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-lg text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
-                  />
-                </div>
-                <textarea
-                  placeholder="Message"
-                  className="mt-6 min-h-[170px] w-full resize-none rounded-none border border-[#d89b2e] bg-white px-4 py-3 text-lg text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]"
-                />
-                <div className="mt-5 flex justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-md bg-[#50a7a4] px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-[#458f8c]"
-                  >
-                    Send
-                    <Image
-                      src="/Images/sendMessage.png"
-                      alt=""
-                      aria-hidden="true"
-                      width={20}
-                      height={20}
-                      className="h-5 w-5 object-contain"
-                    />
-                  </button>
-                </div>
+              <div className="mt-5">
+                <WebsiteInquiryForm className="rounded-md border border-[#8ccfcf] p-8" />
               </div>
             </div>
           </div>
