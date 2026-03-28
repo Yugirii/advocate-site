@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import MobileNav from "@/components/client/MobileNav";
+import { supabase } from "@/lib/supabaseClient";
+import { useAdminSession } from "@/components/client/AdminSessionProvider";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -19,12 +21,19 @@ type NavbarProps = {
 
 export default function Navbar({ tone = "light" }: NavbarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const { isAdmin } = useAdminSession();
   const toneClass = tone === "dark" ? "text-slate-900" : "text-white";
   const linkClass =
     "relative inline-flex items-center whitespace-nowrap px-2 py-2 -mx-2 -my-2 text-sm font-semibold opacity-90 transition-all duration-200 ease-out hover:-translate-y-px hover:text-[#E39727] hover:opacity-100 after:pointer-events-none after:absolute after:inset-x-2 after:bottom-[0.15rem] after:h-[2px] after:origin-left after:scale-x-0 after:bg-[#E39727] after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100";
 
   const isActiveLink = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
+  const showAdminLogout = isAdmin;
+  const logoutClass =
+    tone === "dark"
+      ? "text-[#1f1f1f] border-black/30 hover:bg-[#E39727] hover:text-white"
+      : "text-white border-white/70 hover:bg-white/90 hover:text-[#1f1f1f]";
 
   return (
     <nav className="relative w-full">
@@ -61,7 +70,19 @@ export default function Navbar({ tone = "light" }: NavbarProps) {
           ))}
         </div>
 
-        <div className="justify-self-end">
+        <div className="flex items-center justify-self-end gap-3">
+          {showAdminLogout ? (
+            <button
+              type="button"
+              onClick={async () => {
+                await supabase.auth.signOut();
+                router.replace("/admin/login");
+              }}
+              className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition-colors md:text-[0.78rem] ${logoutClass}`}
+            >
+              Logout
+            </button>
+          ) : null}
           <MobileNav items={navItems} tone={tone} />
         </div>
       </div>

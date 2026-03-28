@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import SocialRail from "@/components/client/SocialRail";
+import AppProviders from "@/components/client/AppProviders";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,10 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
-        <SocialRail />
+        <AppProviders>
+          <Header />
+          {children}
+          <Footer />
+          <SocialRail />
+        </AppProviders>
       </body>
     </html>
   );
