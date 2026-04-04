@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 import { useAdminSession } from "@/components/client/AdminSessionProvider";
@@ -13,32 +13,17 @@ export default function AdminGuard({ children }: AdminGuardProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { isAdmin, isLoading } = useAdminSession();
-  const [isReady, setIsReady] = useState(false);
 
   const isLoginRoute = pathname === "/admin/login";
+  const isReady = isLoginRoute || (!isLoading && isAdmin);
 
   useEffect(() => {
-    let isMounted = true;
-
-    if (isLoginRoute) {
-      if (isMounted) {
-        setIsReady(true);
-      }
-      return () => {
-        isMounted = false;
-      };
-    }
+    if (isLoginRoute) return;
 
     if (!isLoading && !isAdmin) {
       supabase.auth.signOut();
       router.replace("/admin/login");
-      return () => {
-        isMounted = false;
-      };
-    }
-
-    if (!isLoading && isMounted) {
-      setIsReady(true);
+      return;
     }
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
@@ -50,7 +35,6 @@ export default function AdminGuard({ children }: AdminGuardProps) {
     );
 
     return () => {
-      isMounted = false;
       authListener.subscription.unsubscribe();
     };
   }, [isAdmin, isLoading, isLoginRoute, router]);

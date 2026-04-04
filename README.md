@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Admin Access Configuration
+
+To strictly protect `/admin` routes, configure:
+
+- `ADMIN_EMAIL` (server-only): the only email allowed to access `/admin/*`.
+- `NEXT_PUBLIC_ADMIN_EMAIL` (optional, client UI only): keeps admin-only buttons in sync on the frontend. Set it to the same value as `ADMIN_EMAIL`.
+- `NEXT_PUBLIC_BLOG_IMAGE_BUCKET`: Supabase Storage bucket name used for cropped blog images (for example `blog-images`).
+
+If `ADMIN_EMAIL` is missing, middleware denies admin route access.

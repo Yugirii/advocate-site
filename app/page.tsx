@@ -22,6 +22,7 @@ export default function Home() {
           src="/Images/landingpageIMG1.jpg"
           alt="Hero background"
           fill
+          sizes="100vw"
           priority
           className={styles.heroImage}
         />

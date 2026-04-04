@@ -62,7 +62,7 @@ export default function AdminSessionProvider({
     }
     const isAdmin = allowedEmail
       ? userEmail.toLowerCase() === allowedEmail
-      : true;
+      : false;
     return { isAdmin, isLoading, userEmail };
   }, [allowedEmail, isLoading, userEmail]);
 

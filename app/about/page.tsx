@@ -15,6 +15,7 @@ export default function AboutPage() {
           src="/Images/aboutus.jpg"
           alt="Advocate team and travel consultation"
           fill
+          sizes="100vw"
           priority
           className={styles.heroImage}
         />

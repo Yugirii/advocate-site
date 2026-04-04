@@ -39,6 +39,7 @@ export default function AdminLoginPage() {
           src="/Images/tourpackageInternationalbackground.jpg"
           alt="Admin login background"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />

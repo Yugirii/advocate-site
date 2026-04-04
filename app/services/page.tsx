@@ -50,6 +50,7 @@ export default function ServicesPage() {
           src="/Images/visaassistance2.jpg"
           alt="Visa assistance services"
           fill
+          sizes="100vw"
           priority
           className={styles.heroImage}
         />

@@ -80,6 +80,7 @@ export default function DestinationsPage() {
           src={activeSlide.background}
           alt={activeSlide.backgroundAlt}
           fill
+          sizes="100vw"
           priority
           className={styles.heroImage}
         />
@@ -118,6 +119,7 @@ export default function DestinationsPage() {
                     src={leftSlide.foreground}
                     alt={leftSlide.foregroundAlt}
                     fill
+                    sizes="(min-width: 1201px) 148px, (min-width: 768px) 118px, (min-width: 421px) 132px, 118px"
                     className={styles.cardImage}
                   />
                 </span>
@@ -133,6 +135,7 @@ export default function DestinationsPage() {
                     src={activeSlide.foreground}
                     alt={activeSlide.foregroundAlt}
                     fill
+                    sizes="(min-width: 1201px) 208px, (min-width: 768px) 162px, (min-width: 421px) 176px, 157px"
                     className={styles.cardImage}
                   />
                 </span>
@@ -152,8 +155,9 @@ export default function DestinationsPage() {
                 <span className={styles.cardMedia}>
                   <Image
                     src={rightSlide.foreground}
-                   alt={rightSlide.foregroundAlt}
+	                   alt={rightSlide.foregroundAlt}
                     fill
+                    sizes="(min-width: 1201px) 148px, (min-width: 768px) 118px, (min-width: 421px) 132px, 118px"
                     className={styles.cardImage}
                   />
                 </span>
@@ -195,6 +199,7 @@ export default function DestinationsPage() {
                     src="/Images/sanfrancisco.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 168px, 133px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -204,6 +209,7 @@ export default function DestinationsPage() {
                     src="/Images/vancouver.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 140px, 111px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -213,6 +219,7 @@ export default function DestinationsPage() {
                     src="/Images/safari.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 218px, 172px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -238,6 +245,7 @@ export default function DestinationsPage() {
                     src="/Images/batanes.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 174px, 148px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -247,6 +255,7 @@ export default function DestinationsPage() {
                     src="/Images/elnido.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 174px, 148px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -256,6 +265,7 @@ export default function DestinationsPage() {
                     src="/Images/iloilo.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 172px, 148px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -282,6 +292,7 @@ export default function DestinationsPage() {
                     src="/Images/cruise.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 178px, 138px"
                     className={styles.collageImage}
                   />
                 </div>
@@ -291,6 +302,7 @@ export default function DestinationsPage() {
                     src="/Images/cruisebreakfast.jpg"
                     alt=""
                     fill
+                    sizes="(min-width: 768px) 210px, 162px"
                     className={styles.collageImage}
                   />
                 </div>
