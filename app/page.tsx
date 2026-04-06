@@ -208,49 +208,49 @@ export default function Home() {
               alt="Department of Tourism"
               width={180}
               height={65}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/PATA.png"
               alt="PATA"
               width={180}
               height={65}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/PHILTOA.png"
               alt="PHILTOA"
               width={200}
               height={65}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/PTAA.jpg"
               alt="PTAA"
               width={170}
               height={65}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/TPB.png"
               alt="TPB Philippines"
-              width={135}
+              width={100}
               height={80}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/NAITAS.jpg"
               alt="NAITAS"
-              width={135}
+              width={186}
               height={80}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
             <Image
               src="/Images/NITAS.png"
-              alt="NAITAS"
-              width={135}
+              alt="NITAS"
+              width={73}
               height={80}
-              className="h-auto max-h-20 w-auto object-contain"
+              className="object-contain"
             />
           </div>
         </div>

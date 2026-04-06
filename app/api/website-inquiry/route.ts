@@ -124,7 +124,7 @@ export async function POST(request: Request) {
   const { error } = await resend.emails.send({
     from: fromAddress,
     to: process.env.RESEND_TO,
-    reply_to: payload.email,
+    replyTo: payload.email,
     subject,
     text,
     html,

@@ -1,0 +1,210 @@
+@reference "tailwindcss";
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background: #FFFFFF;
+  padding-top: clamp(5rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.introSection {
+  width: 100%;
+}
+
+.introInner {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-top: 1.1rem;
+}
+
+.cardsSection {
+  width: 100%;
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.cardsInner {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.cardGrid {
+  margin-top: clamp(1.1rem, 3vw, 1.8rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.7rem);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  background: #f3f3f3;
+}
+
+.cardMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 280ms ease;
+}
+
+.cardLabel {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  min-height: 6.3rem;
+  border-top: 1px solid #cfcfcf;
+  background: rgba(236, 236, 236, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.15rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+}
+
+.card:hover .cardImage,
+.card:focus-within .cardImage {
+  transform: scale(1.02);
+}
+
+.card:hover .cardLabel,
+.card:focus-within .cardLabel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.cardLabelLink {
+  color: #50a7a4;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 1.3vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-align: center;
+  transition: color 200ms ease;
+}
+
+.cardLabelLink:hover,
+.cardLabelLink:focus-visible {
+  color: #e39727;
+}
+
+.inquirySection {
+  width: 100%;
+  margin-top: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.inquiryInner {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+}
+
+.inquiryAside {
+  padding-top: 0.35rem;
+}
+
+.inquiryTitle {
+  margin: 0;
+  text-transform: uppercase;
+  color: #50a7a4;
+  font-size: clamp(1.875rem, 3.1vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+}
+
+.inquiryTitle span {
+  display: block;
+}
+
+.contactList {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactItem {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #2d2d2d;
+}
+
+.formCard {
+  width: 100%;
+}
+
+.formShell {
+  border: 1px solid #8ccfcf;
+  border-radius: 8px;
+  padding: clamp(1rem, 2.2vw, 2rem);
+  background: transparent;
+}
+
+@media (min-width: 640px) {
+  .introInner,
+  .cardsInner,
+  .inquiryInner {
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiryInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .introInner,
+  .cardsInner,
+  .inquiryInner {
+    padding-inline: 1rem;
+  }
+
+  .cardLabel {
+    min-height: 4.6rem;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .contactList {
+    margin-top: 1.1rem;
+    gap: 0.95rem;
+  }
+
+  .contactItem {
+    font-size: 1rem;
+  }
+}

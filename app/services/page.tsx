@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
 import ScrollToHash from "./ScrollToHash";
@@ -37,7 +38,7 @@ const visaDestinationColumns = [
     { label: "China", withCheck: true },
     { label: "Turkiye", withCheck: true },
     { label: "UAE", withCheck: true },
-    { label: "and more!", withCheck: false },
+    { label: "Learn more", withCheck: false, href: "/visa-assistance" },
   ],
 ];
 
@@ -209,9 +210,18 @@ export default function ServicesPage() {
                         ) : (
                           <span className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
                         )}
-                        <span className="text-base leading-7">
-                          {destination.label}
-                        </span>
+                        {destination.href ? (
+                          <Link
+                            href={destination.href}
+                            className="text-base leading-7 text-black underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-[#E39727] hover:decoration-[#E39727]"
+                          >
+                            {destination.label}
+                          </Link>
+                        ) : (
+                          <span className="text-base leading-7">
+                            {destination.label}
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ul>
