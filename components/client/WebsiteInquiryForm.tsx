@@ -1,10 +1,17 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import Image from "next/image";
 
 type WebsiteInquiryFormProps = {
   className?: string;
+  initialMessage?: string;
+  submitLabel?: string;
+  helperNote?: string;
+  showSubmitIcon?: boolean;
+  variant?: "default" | "simple";
+  inquiryType?: "website" | "visa";
+  inquiryTarget?: string;
 };
 
 type FormState = {
@@ -16,12 +23,12 @@ type FormState = {
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
-const initialState: FormState = {
+const getInitialState = (initialMessage?: string): FormState => ({
   name: "",
   email: "",
   phone: "",
-  message: "",
-};
+  message: initialMessage?.trim() ?? "",
+});
 
 const inputClassName =
   "w-full rounded-none border border-[#d89b2e] bg-white px-4 py-2 text-base text-[#2d2d2d] outline-none placeholder:text-[#8f8f8f]";
@@ -30,13 +37,28 @@ const textareaClassName =
 
 export default function WebsiteInquiryForm({
   className = "",
+  initialMessage,
+  submitLabel = "Send",
+  helperNote,
+  showSubmitIcon = true,
+  variant = "default",
+  inquiryType = "website",
+  inquiryTarget,
 }: WebsiteInquiryFormProps) {
-  const [formState, setFormState] = useState<FormState>(initialState);
+  const [formState, setFormState] = useState<FormState>(
+    getInitialState(initialMessage)
+  );
   const [status, setStatus] = useState<{
     type: "idle" | "loading" | "success" | "error";
     message: string;
   }>({ type: "idle", message: "" });
   const [formErrors, setFormErrors] = useState<FormErrors>({});
+
+  useEffect(() => {
+    setFormState(getInitialState(initialMessage));
+    setFormErrors({});
+    setStatus({ type: "idle", message: "" });
+  }, [initialMessage]);
 
   const updateField = (field: keyof FormState, value: string) => {
     setFormState((prev) => ({ ...prev, [field]: value }));
@@ -150,6 +172,8 @@ export default function WebsiteInquiryForm({
           email: formState.email.trim(),
           phone: formState.phone.trim(),
           message: formState.message.trim(),
+          inquiryType,
+          inquiryTarget: inquiryTarget?.trim() || undefined,
         }),
       });
 
@@ -160,7 +184,7 @@ export default function WebsiteInquiryForm({
         throw new Error(data?.error || "Unable to send the inquiry right now.");
       }
 
-      setFormState(initialState);
+      setFormState(getInitialState(initialMessage));
       setStatus({
         type: "success",
         message: "Inquiry sent. We will get back to you soon.",
@@ -175,6 +199,109 @@ export default function WebsiteInquiryForm({
       });
     }
   };
+
+  if (variant === "simple") {
+    return (
+      <form className={className} onSubmit={handleSubmit}>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <label className="text-base font-medium leading-6 text-[#1f1f1f]">
+              Email <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="email"
+              value={formState.email}
+              onChange={(event) => updateField("email", event.target.value)}
+              onBlur={() => validateField("email")}
+              className="w-full rounded-md border border-[#bcbcbc] bg-white px-3 py-2.5 text-base text-black outline-none transition focus:border-[#50a7a4] focus:ring-2 focus:ring-[#50a7a4]/20"
+              required
+            />
+            {formErrors.email ? (
+              <p className="text-sm text-red-600">{formErrors.email}</p>
+            ) : null}
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-base font-medium leading-6 text-[#1f1f1f]">
+              Name <span className="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              value={formState.name}
+              onChange={(event) => updateField("name", event.target.value)}
+              onBlur={() => validateField("name")}
+              className="w-full rounded-md border border-[#bcbcbc] bg-white px-3 py-2.5 text-base text-black outline-none transition focus:border-[#50a7a4] focus:ring-2 focus:ring-[#50a7a4]/20"
+              required
+            />
+            {formErrors.name ? (
+              <p className="text-sm text-red-600">{formErrors.name}</p>
+            ) : null}
+          </div>
+
+          <div className="space-y-2 sm:col-span-2">
+            <label className="text-base font-medium leading-6 text-[#1f1f1f]">
+              Phone
+            </label>
+            <input
+              type="tel"
+              value={formState.phone}
+              onChange={(event) =>
+                updateField("phone", event.target.value.replace(/\D/g, ""))
+              }
+              onBlur={() => validateField("phone")}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              className="w-full rounded-md border border-[#bcbcbc] bg-white px-3 py-2.5 text-base text-black outline-none transition focus:border-[#50a7a4] focus:ring-2 focus:ring-[#50a7a4]/20"
+            />
+            {formErrors.phone ? (
+              <p className="text-sm text-red-600">{formErrors.phone}</p>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="mt-5 space-y-2">
+          <label className="text-base font-medium leading-6 text-[#1f1f1f]">
+            Message <span className="text-red-600">*</span>
+          </label>
+          <textarea
+            value={formState.message}
+            onChange={(event) => updateField("message", event.target.value)}
+            onBlur={() => validateField("message")}
+            maxLength={600}
+            rows={6}
+            className="w-full resize-y rounded-md border border-[#bcbcbc] bg-white px-3 py-2.5 text-base text-black outline-none transition focus:border-[#50a7a4] focus:ring-2 focus:ring-[#50a7a4]/20"
+            required
+          />
+          {formErrors.message ? (
+            <p className="text-sm text-red-600">{formErrors.message}</p>
+          ) : null}
+        </div>
+
+        {helperNote ? (
+          <p className="mt-4 text-sm leading-6 text-red-600">{helperNote}</p>
+        ) : null}
+
+        <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+          {status.type !== "idle" ? (
+            <p
+              className={`text-sm ${
+                status.type === "error" ? "text-red-600" : "text-[#1f1f1f]"
+              }`}
+            >
+              {status.message}
+            </p>
+          ) : null}
+          <button
+            type="submit"
+            className="min-w-[9rem] cursor-pointer rounded-md bg-[#50a7a4] px-6 py-2.5 text-xl font-medium text-white transition-colors duration-200 hover:bg-[#458f8c] disabled:cursor-not-allowed disabled:opacity-70"
+            disabled={status.type === "loading"}
+          >
+            {status.type === "loading" ? "Sending..." : submitLabel}
+          </button>
+        </div>
+      </form>
+    );
+  }
 
   return (
     <form className={className} onSubmit={handleSubmit}>
@@ -243,7 +370,15 @@ export default function WebsiteInquiryForm({
         <p className="text-sm text-red-600">{formErrors.message}</p>
       ) : null}
 
-      <div className="mt-5 flex flex-wrap items-center justify-end gap-3">
+      {helperNote ? (
+        <p className="mt-4 text-sm leading-6 text-red-600">{helperNote}</p>
+      ) : null}
+
+      <div
+        className={`flex flex-wrap items-center justify-end gap-3 ${
+          helperNote ? "mt-3" : "mt-5"
+        }`}
+      >
         {status.type !== "idle" && (
           <p
             className={`text-base ${
@@ -258,15 +393,17 @@ export default function WebsiteInquiryForm({
           className="inline-flex items-center gap-2 rounded-md bg-[#50a7a4] px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-[#458f8c] disabled:cursor-not-allowed disabled:opacity-70"
           disabled={status.type === "loading"}
         >
-          {status.type === "loading" ? "Sending..." : "Send"}
-          <Image
-            src="/Images/sendMessage.png"
-            alt=""
-            aria-hidden="true"
-            width={20}
-            height={20}
-            className="h-5 w-5 object-contain"
-          />
+          {status.type === "loading" ? "Sending..." : submitLabel}
+          {showSubmitIcon ? (
+            <Image
+              src="/Images/sendMessage.png"
+              alt=""
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="h-5 w-5 object-contain"
+            />
+          ) : null}
         </button>
       </div>
     </form>

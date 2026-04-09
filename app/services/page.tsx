@@ -36,6 +36,21 @@ const visaDestinationColumns = [
   ],
 ];
 
+const travelInsuranceSlides = [
+  {
+    src: "/Images/travelinsurance1-crop.png",
+    alt: "Travel insurance card for cancelled flights and trip interruptions",
+  },
+  {
+    src: "/Images/travelinsurance2-crop.png",
+    alt: "Travel insurance card for delayed baggage coverage",
+  },
+  {
+    src: "/Images/travelinsurance3-crop.png",
+    alt: "Travel insurance card for lost baggage protection",
+  },
+];
+
 export default function ServicesPage() {
   return (
     <main className={`${styles.main} font-[var(--font-body)] text-black`}>
@@ -161,7 +176,7 @@ export default function ServicesPage() {
                 {visaReasons.map((reason) => (
                   <li key={reason} className="flex items-start gap-3">
                     <Image
-                      src="/Images/pin.png"
+                      src="/Images/pin3.png"
                       alt=""
                       aria-hidden="true"
                       width={24}
@@ -194,7 +209,7 @@ export default function ServicesPage() {
                       >
                         {destination.withCheck ? (
                           <Image
-                            src="/Images/checkMarkVisa.png"
+                            src="/Images/checkMarkVisa2.png"
                             alt=""
                             aria-hidden="true"
                             width={22}
@@ -222,6 +237,38 @@ export default function ServicesPage() {
                 ))}
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[var(--background)]">
+        <div className="mx-auto w-full max-w-[90rem] px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
+          <h2
+            className={`font-display uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+          >
+            Travel Insurance
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 max-md:mt-4">
+            Protect your plans with coverage designed for real-world travel
+            risks. We help you choose the right insurance package so you can
+            travel with confidence, from departure to return.
+          </p>
+
+          <div className={styles.insuranceCarousel} aria-label="Travel insurance coverage options">
+            <div className={styles.insuranceGrid}>
+              {travelInsuranceSlides.map((slide) => (
+                <article key={slide.src} className={styles.insuranceCard}>
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    width={720}
+                    height={1080}
+                    className={styles.insuranceCardImage}
+                  />
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

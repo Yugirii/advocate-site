@@ -6,6 +6,8 @@ type WebsiteInquiryPayload = {
   email: string;
   phone?: string;
   message: string;
+  inquiryType?: "website" | "visa";
+  inquiryTarget?: string;
 };
 
 const escapeHtml = (value: string) =>
@@ -74,7 +76,15 @@ export async function POST(request: Request) {
 
   const fromAddress =
     process.env.RESEND_FROM ?? "Resend Test <onboarding@resend.dev>";
-  const subject = "Website Inquiry";
+  const cleanedInquiryTarget = payload.inquiryTarget
+    ?.trim()
+    .replace(/[\r\n]+/g, " ")
+    .slice(0, 80);
+  const inquiryTitle =
+    payload.inquiryType === "visa" && cleanedInquiryTarget
+      ? `Visa Assistance Inquiry for ${cleanedInquiryTarget}`
+      : "Website Inquiry";
+  const subject = inquiryTitle;
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.SITE_URL ??
@@ -88,7 +98,7 @@ export async function POST(request: Request) {
   const message = escapeHtml(trimmedMessage);
 
   const text = [
-    "Website Inquiry",
+    inquiryTitle,
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
     `Phone: ${payload.phone?.trim() || "(none)"}`,
@@ -96,6 +106,8 @@ export async function POST(request: Request) {
     "Message:",
     trimmedMessage,
   ].join("\n");
+
+  const title = escapeHtml(inquiryTitle);
 
   const html = `
     <div style="margin:0; padding:32px; background:#f3f3f3; font-family: Arial, Helvetica, sans-serif; color:#1f1f1f;">
@@ -105,7 +117,7 @@ export async function POST(request: Request) {
         </div>
         <div style="background:#ffffff; border-radius:12px; padding:32px; box-shadow:0 12px 28px rgba(0,0,0,0.08);">
           <h1 style="margin:0 0 20px; font-size:24px; font-weight:700;">
-            Website Inquiry
+            ${title}
           </h1>
           <p style="margin:0 0 18px; font-size:15px; line-height:1.6;">
             ${name}<br/>

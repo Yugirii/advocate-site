@@ -67,8 +67,10 @@ export default function SocialRail() {
       const floatTop = window.innerHeight - FLOAT_BOTTOM_OFFSET - railHeight;
 
       const anchorRect = anchor.getBoundingClientRect();
+      const hasVisibleAnchor = anchorRect.width > 0 && anchorRect.height > 0;
       const shouldDock =
         pageReadyRef.current &&
+        hasVisibleAnchor &&
         anchorRect.top <= window.innerHeight - DOCK_TRIGGER_BOTTOM_OFFSET;
 
       if (shouldDock) {
@@ -184,7 +186,7 @@ export default function SocialRail() {
     <div
       ref={railRef}
       aria-label="Social links"
-      className={`z-40 flex ${isDocked ? "flex-row items-center gap-4" : "flex-col items-center gap-3 sm:gap-4"}`}
+      className={`z-40 hidden md:flex ${isDocked ? "flex-row items-center gap-4" : "flex-col items-center gap-3 sm:gap-4"}`}
       style={railStyle}
     >
       {socialLinks.map((item) => (

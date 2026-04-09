@@ -85,7 +85,10 @@ function DestinationGridSection({
               {destination.name}
             </h3>
 
-            <article className="group overflow-hidden rounded-[4px] border border-[#cfcfcf] bg-white">
+            <article
+              className="group overflow-hidden rounded-[4px] border border-[#cfcfcf] bg-white"
+              tabIndex={0}
+            >
               <div className="relative aspect-[16/9] w-full">
                 <Image
                   src={`/Images/${destination.image}`}
@@ -95,7 +98,7 @@ function DestinationGridSection({
                   className="object-cover"
                 />
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex min-h-[3.7rem] translate-y-2 items-center justify-center bg-white/95 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 max-md:translate-y-0 max-md:opacity-100">
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex min-h-[3.7rem] translate-y-2 items-center justify-center bg-white/95 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   <button
                     type="button"
                     onClick={() => onInquire(destination.name)}
@@ -431,10 +434,17 @@ export default function DestinationInquirySections({
               <button
                 type="button"
                 onClick={closeModal}
-                className="rounded px-2 text-3xl leading-none text-[#1f1f1f] transition-colors hover:text-[#E39727]"
+                className="rounded p-1 transition-opacity hover:opacity-80"
                 aria-label="Close destination inquiry form"
               >
-                x
+                <Image
+                  src="/Images/cross.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 object-contain"
+                />
               </button>
             </div>
 

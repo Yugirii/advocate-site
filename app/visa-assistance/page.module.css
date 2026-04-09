@@ -89,7 +89,11 @@
   transform: translateY(0);
 }
 
-.cardLabelLink {
+.cardLabelButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
   color: #50a7a4;
   text-decoration: none;
   font-size: clamp(0.9rem, 1.3vw, 1.35rem);
@@ -100,10 +104,11 @@
   transition: color 200ms ease;
 }
 
-.cardLabelLink:hover,
-.cardLabelLink:focus-visible {
+.cardLabelButton:hover,
+.cardLabelButton:focus-visible {
   color: #e39727;
 }
+
 
 .inquirySection {
   width: 100%;
@@ -191,14 +196,6 @@
     padding-inline: 1rem;
   }
 
-  .cardLabel {
-    min-height: 4.6rem;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
   .contactList {
     margin-top: 1.1rem;
     gap: 0.95rem;
@@ -207,4 +204,13 @@
   .contactItem {
     font-size: 1rem;
   }
+
+  .cardLabel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    min-height: 5.25rem;
+  }
+
 }

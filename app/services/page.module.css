@@ -39,9 +39,54 @@
   transform: translateY(-8%);
 }
 
+.insuranceCarousel {
+  position: relative;
+  margin-top: 3rem;
+}
+
+.insuranceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 86rem;
+  margin-inline: auto;
+}
+
+.insuranceCard {
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 10px 24px rgb(17 34 51 / 0.1);
+}
+
+.insuranceCardImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 @media (min-width: 640px) {
   .heroInner {
     padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .insuranceGrid {
+    max-width: 72rem;
+  }
+}
+
+@media (max-width: 979px) {
+  .insuranceCarousel {
+    margin-top: 2rem;
+  }
+
+  .insuranceGrid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    max-width: min(24rem, 94vw);
   }
 }
 

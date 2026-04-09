@@ -1,5 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./page.module.css";
 import WebsiteInquiryForm from "../../components/client/WebsiteInquiryForm";
 
@@ -52,6 +54,33 @@ const visaCards = [
 ] as const;
 
 export default function VisaAssistancePage() {
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+
+  const closeModal = () => {
+    setSelectedCountry(null);
+  };
+
+  useEffect(() => {
+    if (!selectedCountry) {
+      return;
+    }
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeydown);
+    };
+  }, [selectedCountry]);
+
   return (
     <main className={`${styles.main} font-[var(--font-body)] text-black`}>
       <section className={styles.introSection}>
@@ -79,7 +108,11 @@ export default function VisaAssistancePage() {
 
           <div className={styles.cardGrid}>
             {visaCards.map((card) => (
-              <article key={card.country} className={styles.card}>
+              <article
+                key={card.country}
+                className={styles.card}
+                tabIndex={0}
+              >
                 <div className={styles.cardMedia}>
                   <Image
                     src={card.image}
@@ -91,12 +124,13 @@ export default function VisaAssistancePage() {
                 </div>
 
                 <div className={styles.cardLabel}>
-                  <Link
-                    href="#visa-inquiries"
-                    className={styles.cardLabelLink}
+                  <button
+                    type="button"
+                    className={styles.cardLabelButton}
+                    onClick={() => setSelectedCountry(card.country)}
                   >
                     {`Inquire ${card.country} Visa`}
-                  </Link>
+                  </button>
                 </div>
               </article>
             ))}
@@ -146,6 +180,64 @@ export default function VisaAssistancePage() {
           </div>
         </div>
       </section>
+
+      {selectedCountry ? (
+        <div
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/50 px-4 py-6"
+          onClick={closeModal}
+        >
+          <div
+            className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-[#d5d5d5] bg-[#f6f6f6] p-4 shadow-2xl sm:p-6"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="visa-assistance-inquiry-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3
+                  id="visa-assistance-inquiry-title"
+                  className="text-3xl font-semibold leading-tight text-black"
+                >
+                  Visa Assistance Inquiry
+                </h3>
+                <p className="mt-1 text-sm text-[#5d5d5d]">
+                  For:{" "}
+                  <span className="font-semibold text-black">
+                    {selectedCountry}
+                  </span>
+                </p>
+              </div>
+              <button
+                type="button"
+                className="rounded p-1 transition-opacity hover:opacity-80"
+                onClick={closeModal}
+                aria-label="Close visa inquiry modal"
+              >
+                <Image
+                  src="/Images/cross.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 object-contain"
+                />
+              </button>
+            </div>
+
+            <WebsiteInquiryForm
+              key={selectedCountry}
+              className="mt-6"
+              variant="simple"
+              inquiryType="visa"
+              inquiryTarget={selectedCountry}
+              initialMessage={`Hello, I would like to inquire about ${selectedCountry} visa assistance.`}
+              submitLabel="Submit"
+              helperNote="Note: We will reply to your email as soon as possible, your patience is appreciated."
+            />
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

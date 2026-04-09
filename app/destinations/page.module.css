@@ -47,6 +47,7 @@
 }
 
 .carouselRow {
+  --carousel-offset-y: 0%;
   position: absolute;
   left: 50%;
   bottom: 1.35rem;
@@ -56,7 +57,7 @@
   gap: 1.4rem;
   justify-content: center;
   align-items: center;
-  transform: translateX(-50%);
+  transform: translate(-50%, var(--carousel-offset-y));
   will-change: transform, opacity;
 }
 
@@ -285,24 +286,24 @@
 
 @keyframes carousel-slide-right {
   from {
-    transform: translateX(calc(-50% + 30px));
+    transform: translate(calc(-50% + 30px), var(--carousel-offset-y));
     opacity: 0.94;
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate(-50%, var(--carousel-offset-y));
     opacity: 1;
   }
 }
 
 @keyframes carousel-slide-left {
   from {
-    transform: translateX(calc(-50% - 30px));
+    transform: translate(calc(-50% - 30px), var(--carousel-offset-y));
     opacity: 0.94;
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate(-50%, var(--carousel-offset-y));
     opacity: 1;
   }
 }
@@ -343,11 +344,11 @@
   }
 
   .carouselRow {
+    --carousel-offset-y: -50%;
     width: min(100%, 26.5rem);
     top: 60%;
     bottom: auto;
     gap: 0.75rem;
-    transform: translate(-50%, -50%);
   }
 
   .sideCard {
@@ -401,11 +402,11 @@
 
 @media (max-width: 420px) {
   .carouselRow {
+    --carousel-offset-y: -50%;
     width: min(100%, 23.5rem);
     top: 60%;
     bottom: auto;
     gap: 0.6rem;
-    transform: translate(-50%, -50%);
   }
 
   .sideCard {

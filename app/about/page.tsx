@@ -148,46 +148,53 @@ export default function AboutPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-7">
             <Image
-              src="/Images/Department_of_Tourism.svg"
+              src="/Images/DOTsealed.png"
               alt="Department of Tourism"
-              width={90}
-              height={90}
-              className="object-contain h-auto"
+              width={180}
+              height={65}
+              className="object-contain"
             />
             <Image
               src="/Images/PATA.png"
               alt="PATA"
               width={180}
               height={65}
-              className="object-contain h-auto"
+              className="object-contain"
             />
             <Image
               src="/Images/PHILTOA.png"
               alt="PHILTOA"
               width={200}
               height={65}
-              className="object-contain h-auto"
+              className="object-contain"
             />
             <Image
               src="/Images/PTAA.jpg"
               alt="PTAA"
               width={170}
               height={65}
-              className="object-contain h-auto"
+              className="object-contain"
             />
             <Image
               src="/Images/TPB.png"
               alt="TPB Philippines"
               width={100}
               height={80}
-              className="object-contain h-auto"
+              className="object-contain"
             />
             <Image
               src="/Images/NAITAS.jpg"
               alt="NAITAS"
               width={186}
               height={80}
-              className="object-contain h-auto"
+              className="object-contain"
+            />
+            <Image
+              src="/Images/NITAS.png"
+              alt="NITAS"
+              width={73}
+              height={80}
+              className="object-contain"
             />
           </div>
         </div>

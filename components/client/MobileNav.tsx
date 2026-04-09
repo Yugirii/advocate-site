@@ -13,9 +13,18 @@ type MobileNavProps = {
   tone?: "light" | "dark";
 };
 
+const destinationSubRoutes: MobileNavItem[] = [
+  { href: "/destinations/international", label: "International" },
+  { href: "/destinations/domestic", label: "Domestic" },
+  { href: "/destinations/cruise", label: "Cruise" },
+];
+
 export default function MobileNav({ items, tone = "light" }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const closeMenu = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -48,7 +57,13 @@ export default function MobileNav({ items, tone = "light" }: MobileNavProps) {
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {
+          if (open) {
+            closeMenu();
+            return;
+          }
+          setOpen(true);
+        }}
         className={`inline-flex items-center justify-center rounded-md p-2 transition-colors ${buttonClass}`}
       >
         <span className="sr-only">Open menu</span>
@@ -67,31 +82,58 @@ export default function MobileNav({ items, tone = "light" }: MobileNavProps) {
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-40">
-          <button
-            type="button"
-            aria-label="Close menu"
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setOpen(false)}
-          />
+        <div className="fixed inset-x-0 top-[72px] z-40 animate-menu-drop px-4">
           <div
             id={panelId}
             role="menu"
-            className="absolute right-4 top-16 w-[min(92vw,22rem)] overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-black/10"
-            onClick={(event) => event.stopPropagation()}
+            className="mx-auto w-full max-w-[46rem] overflow-hidden border border-black/10 bg-[#f3f3f3] shadow-xl"
           >
-            <div className="flex flex-col p-2">
-              {items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  role="menuitem"
-                  className="rounded-md px-3 py-2 text-sm font-semibold text-slate-900 transition-all duration-200 ease-out hover:bg-slate-100 hover:text-[#E39727]"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="h-[2px] w-full bg-[#E39727]" />
+            <div className="flex flex-col p-4">
+              {items.map((item) => {
+                if (item.href !== "/destinations") {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      className="border-b border-slate-200 px-3 py-3 text-base font-semibold text-slate-900 transition-colors duration-200 hover:text-[#E39727]"
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
+                return (
+                  <div key={item.href} className="rounded-md">
+                    <div className="flex items-center">
+                      <Link
+                        href={item.href}
+                        role="menuitem"
+                        className="flex-1 bg-slate-200 px-3 py-3 text-base font-bold text-slate-900"
+                        onClick={closeMenu}
+                      >
+                        {item.label}
+                      </Link>
+                    </div>
+
+                    <div className="ml-3 mt-1 flex flex-col border-l border-slate-200 pl-3">
+                      {destinationSubRoutes.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          role="menuitem"
+                          className="border-b border-slate-200 px-3 py-3 text-base font-medium text-slate-700 transition-colors duration-200 hover:text-[#E39727]"
+                          onClick={closeMenu}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

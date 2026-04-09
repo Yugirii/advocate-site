@@ -123,6 +123,7 @@ export default function DestinationsPage() {
                 className={`${styles.destinationCard} ${styles.centerCard}`}
                 aria-label={`Current: ${activeSlide.title} destinations`}
                 aria-current="true"
+                tabIndex={0}
               >
                 <span className={styles.cardMedia}>
                   <Image
@@ -171,7 +172,7 @@ export default function DestinationsPage() {
           <p className="m-0 mt-4 max-w-5xl text-base leading-7 text-black">
             Every destination tells a story. From global landmarks to beautiful 
             Philippine getaways, unforgettable travel experiences await. 
-            +Whether you&apos;re seeking adventure, culture, or relaxation, there&apos;s 
+            Whether you&apos;re seeking adventure, culture, or relaxation, there&apos;s 
             always a destination ready to inspire your next journey.
           </p>
 

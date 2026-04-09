@@ -45,3 +45,18 @@ body {
 .animate-slide-down {
   animation: slide-down 0.35s ease-out;
 }
+
+@keyframes menu-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-drop {
+  animation: menu-drop 0.25s ease-out;
+}
