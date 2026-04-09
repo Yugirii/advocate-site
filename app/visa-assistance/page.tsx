@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
 import WebsiteInquiryForm from "../../components/client/WebsiteInquiryForm";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const visaCards = [
   {
@@ -63,7 +57,7 @@ export default function VisaAssistancePage() {
       <section className={styles.introSection}>
         <div className={styles.introInner}>
           <h1
-            className={`${holtwood.className} text-center text-5xl uppercase leading-none tracking-[0.06em] text-[#E39727] sm:text-5xl max-md:text-4xl`}
+            className={`font-display text-center text-5xl uppercase leading-none tracking-[0.06em] text-[#E39727] sm:text-5xl max-md:text-4xl`}
           >
             Visa Assistance
           </h1>
@@ -78,7 +72,7 @@ export default function VisaAssistancePage() {
       <section className={styles.cardsSection}>
         <div className={styles.cardsInner}>
           <h2
-            className={`${holtwood.className} text-4xl uppercase leading-none tracking-[0.05em] text-[#50a7a4] sm:text-3xl max-md:text-3xl`}
+            className={`font-display text-4xl uppercase leading-none tracking-[0.05em] text-[#50a7a4] sm:text-3xl max-md:text-3xl`}
           >
             Top Visa
           </h2>
@@ -114,7 +108,7 @@ export default function VisaAssistancePage() {
         <div className={styles.inquiryInner}>
           <aside className={styles.inquiryAside}>
             <h2
-              className={`${holtwood.className} ${styles.inquiryTitle}`}
+              className={`font-display ${styles.inquiryTitle}`}
             >
               For
               <span>Inquiries</span>

@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
 import WebsiteInquiryForm from "../components/client/WebsiteInquiryForm";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const sectionTitleClass =
   "text-2xl uppercase tracking-[0.06em] text-[#50a7a4] sm:text-3xl";
@@ -29,7 +23,7 @@ export default function Home() {
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
-            <h1 className={`${holtwood.className} text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}>
+            <h1 className={`font-display text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}>
               Travel leisurely, explore endlessly
             </h1>
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base">
@@ -53,14 +47,14 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col items-start gap-4">
-            <h2 className={`${holtwood.className} ${sectionTitleClass}`}>
+            <h2 className={`font-display ${sectionTitleClass}`}>
               Be an Advoquickfix Affiliate
             </h2>
             <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
               Start your travel business with a trusted one-stop partner. Get
               access to tools, training, and support to grow with confidence.
             </p>
-            <Link href="/services#tourist-visa-assistance" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/services#tourist-visa-assistance" className={`font-display ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -70,14 +64,14 @@ export default function Home() {
       <section className="w-full bg-[var(--background)] group">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-0 md:grid-cols-[1fr_1.1fr]">
           <div className="order-2 flex flex-col items-start gap-4 md:order-1">
-            <h2 className={`${holtwood.className} ${sectionTitleClass}`}>
+            <h2 className={`font-display ${sectionTitleClass}`}>
               Tourist Visa Assistance
             </h2>
             <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
               Get step-by-step guidance for your visa requirements with a team
               that makes the process clear, efficient, and stress-free.
             </p>
-            <Link href="/services#tourist-visa-assistance" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/services#tourist-visa-assistance" className={`font-display ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -106,7 +100,7 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col items-start gap-4">
-            <h2 className={`${holtwood.className} ${sectionTitleClass}`}>
+            <h2 className={`font-display ${sectionTitleClass}`}>
               where to next?
             </h2>
             <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
@@ -114,7 +108,7 @@ export default function Home() {
               unforgettable experiences, whether you seek vibrant cities, serene
               beaches, or cultural treasures.
             </p>
-            <Link href="/destinations" className={`${holtwood.className} ${ctaClass}`}>
+            <Link href="/destinations" className={`font-display ${ctaClass}`}>
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>
@@ -126,14 +120,14 @@ export default function Home() {
           <div className={`${styles.profileCard} relative overflow-hidden rounded-xl bg-center bg-cover transition-transform duration-700 group-hover:scale-[1.03]`}>
             <div className={styles.profileOverlay} />
             <div className={styles.profileContent}>
-              <h2 className={`${holtwood.className} text-3xl uppercase tracking-[0.08em] text-amber-500 sm:text-4xl md:text-5xl`}>
+              <h2 className={`font-display text-3xl uppercase tracking-[0.08em] text-amber-500 sm:text-4xl md:text-5xl`}>
                 Advocate Tours and Travels Inc.
               </h2>
               <p className="max-w-xl text-sm leading-6 text-white/90 sm:text-base">
                 Learn about our mission, our people, and how we help travelers
                 and travel entrepreneurs grow with confidence.
               </p>
-              <Link href="/about" className={`${holtwood.className} ${ctaClass}`}>
+              <Link href="/about" className={`font-display ${ctaClass}`}>
                 Read More <span aria-hidden="true">&gt;</span>
               </Link>
             </div>
@@ -145,7 +139,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[80rem] px-6 py-16">
           <div className="grid grid-cols-1 items-start gap-10 min-[1100px]:grid-cols-[0.9fr_2fr] min-[1100px]:gap-16">
             <aside className="order-2 pt-2 min-[1100px]:order-1">
-              <h3 className={`${holtwood.className} text-3xl uppercase tracking-[0.06em] text-[#50a7a4]`}>
+              <h3 className={`font-display text-3xl uppercase tracking-[0.06em] text-[#50a7a4]`}>
                 For Inquiries
               </h3>
               <div className="mt-5 flex flex-col gap-4">
@@ -175,7 +169,7 @@ export default function Home() {
             </aside>
 
             <div className="order-1 w-full min-[1100px]:order-2">
-              <h3 className={`${holtwood.className} text-3xl uppercase tracking-[0.06em] text-[#50a7a4]`}>
+              <h3 className={`font-display text-3xl uppercase tracking-[0.06em] text-[#50a7a4]`}>
                 We&apos;re Here to Help
               </h3>
               <p className="max-w-xl text-sm leading-6 text-[#3b3b3b] sm:text-base">
@@ -208,49 +202,49 @@ export default function Home() {
               alt="Department of Tourism"
               width={180}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PATA.png"
               alt="PATA"
               width={180}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PHILTOA.png"
               alt="PHILTOA"
               width={200}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PTAA.jpg"
               alt="PTAA"
               width={170}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/TPB.png"
               alt="TPB Philippines"
               width={100}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/NAITAS.jpg"
               alt="NAITAS"
               width={186}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/NITAS.png"
               alt="NITAS"
               width={73}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
             />
           </div>
         </div>

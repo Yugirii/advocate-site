@@ -1,14 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
 import ScrollToHash from "./ScrollToHash";
 import WebsiteInquiryForm from "../../components/client/WebsiteInquiryForm";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const affiliateBenefits = [
   "Earn commissions per successful booking",
@@ -60,7 +54,7 @@ export default function ServicesPage() {
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <h1
-              className={`${holtwood.className} uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
+              className={`font-display uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
             >
               Explore Our Offerings
             </h1>
@@ -75,7 +69,7 @@ export default function ServicesPage() {
       <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20 max-md:px-4 max-md:py-10">
           <h2
-            className={`${holtwood.className} mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
+            className={`font-display mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
           >
             Be an Advoquickfix Affiliate
           </h2>
@@ -111,7 +105,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 items-center gap-10 min-[980px]:grid-cols-[0.95fr_1.2fr] min-[980px]:gap-10 max-md:gap-6">
             <div className="w-full">
               <h2
-                className={`${holtwood.className} uppercase text-3xl leading-[1.1] tracking-[0.05em] text-[#50a7a4] sm:text-4xl max-md:text-2xl [text-decoration-thickness:3px] [text-underline-offset:4px] max-md:[text-decoration-thickness:2px] max-md:[text-underline-offset:3px]`}
+                className={`font-display uppercase text-3xl leading-[1.1] tracking-[0.05em] text-[#50a7a4] sm:text-4xl max-md:text-2xl [text-decoration-thickness:3px] [text-underline-offset:4px] max-md:[text-decoration-thickness:2px] max-md:[text-underline-offset:3px]`}
               >
                 Get Access to a Travel
                 <span className="block">Booking Portal</span>
@@ -143,7 +137,7 @@ export default function ServicesPage() {
         <div className="mx-auto w-full max-w-6xl px-6 pb-14 sm:px-8 sm:pb-16 md:pb-20 max-md:px-4 max-md:pb-10">
           <h2
             id="tourist-visa-assistance"
-            className={`${holtwood.className} scroll-mt-24 uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+            className={`font-display scroll-mt-24 uppercase text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
           >
             Tourist Visa Assistance
           </h2>
@@ -158,7 +152,7 @@ export default function ServicesPage() {
           <div className="mt-12 grid grid-cols-1 gap-7 min-[980px]:grid-cols-2 max-md:mt-8 max-md:gap-5">
             <article className="rounded-md border border-[#d8a65a] bg-transparent p-6 sm:p-8 max-md:p-5">
               <h3
-                className={`${holtwood.className} text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
+                className={`font-display text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
               >
                 Why Choose Us?
               </h3>
@@ -182,7 +176,7 @@ export default function ServicesPage() {
 
             <article className="rounded-md border border-[#d8a65a] bg-transparent p-6 sm:p-8 max-md:p-5">
               <h3
-                className={`${holtwood.className} text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
+                className={`font-display text-3xl font-semibold leading-[1.1] tracking-[0.03em] text-[#50a7a4] max-md:text-2xl`}
               >
                 Top Visa Destinations Available
               </h3>
@@ -237,7 +231,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 items-start gap-8 min-[980px]:grid-cols-[0.9fr_1.6fr] min-[980px]:gap-10">
             <aside className="w-full">
               <h3
-                className={`${holtwood.className} uppercase text-4xl leading-[1.05] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
+                className={`font-display uppercase text-4xl leading-[1.05] tracking-[0.04em] text-[#50a7a4] sm:text-5xl max-md:text-3xl`}
               >
                 For Inquiries
               </h3>

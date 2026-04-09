@@ -3,13 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const destinationSlides = [
   {
@@ -90,7 +84,7 @@ export default function DestinationsPage() {
           <div className={styles.heroInner}>
             <div className="w-full max-w-[44rem]">
               <h1
-                className={`${holtwood.className} text-2xl uppercase leading-[1.05] tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
+                className={`font-display text-2xl uppercase leading-[1.05] tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}
               >
                 Elevate Your Experience
               </h1>
@@ -170,7 +164,7 @@ export default function DestinationsPage() {
       <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
           <h2
-            className={`${holtwood.className} m-0 text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#50a7a4] sm:text-4xl md:text-[3.25rem] max-md:text-2xl max-md:tracking-[0.03em]`}
+            className={`font-display m-0 text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#50a7a4] sm:text-4xl md:text-[3.25rem] max-md:text-2xl max-md:tracking-[0.03em]`}
           >
             Explore Popular Destinations
           </h2>
@@ -182,7 +176,7 @@ export default function DestinationsPage() {
           </p>
 
           <h2
-            className={`${holtwood.className} mb-0 mt-11 text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:mt-8 max-md:text-lg`}
+            className={`font-display mb-0 mt-11 text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:mt-8 max-md:text-lg`}
           >
             Tour Packages
           </h2>

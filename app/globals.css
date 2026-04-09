@@ -3,7 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
-  --font-body: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-geist-sans: "Geist", "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-geist-mono: "Geist Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: "Holtwood One SC", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-geist-sans);
 }
 
 @theme inline {
@@ -23,7 +26,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
 
 @keyframes slide-down {

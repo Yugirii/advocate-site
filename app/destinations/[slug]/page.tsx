@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Holtwood_One_SC } from "next/font/google";
 import DestinationInquirySections from "./DestinationInquirySections";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const destinationPages = {
   international: {
@@ -99,7 +93,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
         <section className="w-full">
           <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
             <h1
-              className={`${holtwood.className} text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
+              className={`font-display text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
             >
               International Countries
             </h1>
@@ -112,7 +106,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </p>
 
             <DestinationInquirySections
-              headingFontClass={holtwood.className}
+              headingFontClass="font-display"
               longHaulDestinations={longHaulDestinations}
               shortHaulDestinations={shortHaulDestinations}
             />
@@ -128,7 +122,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
         <section className="w-full">
           <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
             <h1
-              className={`${holtwood.className} text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
+              className={`font-display text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
             >
               Domestic Destinations
             </h1>
@@ -141,7 +135,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </p>
 
             <DestinationInquirySections
-              headingFontClass={holtwood.className}
+              headingFontClass="font-display"
               longHaulDestinations={domesticDestinations}
               longHaulTitle={null}
             />
@@ -157,7 +151,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
         <section className="w-full">
           <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 sm:py-14 max-md:px-4 max-md:py-10">
             <h1
-              className={`${holtwood.className} text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
+              className={`font-display text-3xl uppercase leading-[1.08] tracking-[0.04em] text-[#d89b2e] sm:text-4xl md:text-[3.25rem] max-md:text-2xl`}
             >
               Cruise Destinations
             </h1>
@@ -170,7 +164,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </p>
 
             <DestinationInquirySections
-              headingFontClass={holtwood.className}
+              headingFontClass="font-display"
               longHaulDestinations={cruiseDestinations}
               longHaulTitle={null}
             />
@@ -188,7 +182,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
         </p>
 
         <h1
-          className={`${holtwood.className} text-3xl uppercase leading-[1.1] tracking-[0.03em] text-[#50a7a4] sm:text-4xl`}
+          className={`font-display text-3xl uppercase leading-[1.1] tracking-[0.03em] text-[#50a7a4] sm:text-4xl`}
         >
           {pageData.title}
         </h1>

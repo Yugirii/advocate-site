@@ -1,11 +1,5 @@
 import Image from "next/image";
-import { Holtwood_One_SC } from "next/font/google";
 import styles from "./page.module.css";
-
-const holtwood = Holtwood_One_SC({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 export default function AboutPage() {
   return (
@@ -24,7 +18,7 @@ export default function AboutPage() {
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <h1
-              className={`${holtwood.className} uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
+              className={`font-display uppercase text-2xl leading-[0.95] tracking-[0.05em] text-amber-500 sm:text-3xl md:text-4xl`}
             >
               Affordable Journeys,
               <span className="block">Quality Experiences.</span>
@@ -42,7 +36,7 @@ export default function AboutPage() {
       <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 md:py-20 max-md:px-4 max-md:py-10">
           <h2
-            className={`${holtwood.className} text-center text-4xl uppercase tracking-[0.05em] text-[#50a7a4] sm:text-5xl`}
+            className={`font-display text-center text-4xl uppercase tracking-[0.05em] text-[#50a7a4] sm:text-5xl`}
           >
             About Us
           </h2>
@@ -88,7 +82,7 @@ export default function AboutPage() {
 
               <div className="mt-8">
                 <h4
-                  className={`${holtwood.className} text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
+                  className={`font-display text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
                 >
                   To provide trustworthy, open, and customer-focused travel
                   services
@@ -102,7 +96,7 @@ export default function AboutPage() {
 
               <div className="mt-8">
                 <h4
-                  className={`${holtwood.className} text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
+                  className={`font-display text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
                 >
                   To make travel experiences smooth and unforgettable
                 </h4>
@@ -115,7 +109,7 @@ export default function AboutPage() {
 
               <div className="mt-8">
                 <h4
-                  className={`${holtwood.className} text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
+                  className={`font-display text-xl uppercase leading-[1.25] tracking-[0.02em] text-[#50a7a4] max-md:text-lg`}
                 >
                   To encourage and enable up-and-coming travel business owners
                 </h4>
@@ -158,42 +152,42 @@ export default function AboutPage() {
               alt="Department of Tourism"
               width={90}
               height={90}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PATA.png"
               alt="PATA"
               width={180}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PHILTOA.png"
               alt="PHILTOA"
               width={200}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/PTAA.jpg"
               alt="PTAA"
               width={170}
               height={65}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/TPB.png"
               alt="TPB Philippines"
               width={100}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
             />
             <Image
               src="/Images/NAITAS.jpg"
               alt="NAITAS"
               width={186}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
             />
           </div>
         </div>
