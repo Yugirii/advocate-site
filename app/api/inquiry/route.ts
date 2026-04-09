@@ -13,8 +13,6 @@ type InquiryPayload = {
   additionalInquiries: string;
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const escapeHtml = (value: string) =>
   value
     .replace(/&/g, "&amp;")
@@ -37,6 +35,8 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const payload = (await request.json()) as Partial<InquiryPayload>;
 
