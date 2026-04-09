@@ -150,29 +150,29 @@ export default function AboutPage() {
             <Image
               src="/Images/DOTsealed.png"
               alt="Department of Tourism"
-              width={180}
-              height={65}
+              width={73}
+              height={72}
               className="object-contain"
             />
             <Image
               src="/Images/PATA.png"
               alt="PATA"
-              width={180}
-              height={65}
+              width={91}
+              height={72}
               className="object-contain"
             />
             <Image
               src="/Images/PHILTOA.png"
               alt="PHILTOA"
-              width={200}
-              height={65}
+              width={194}
+              height={72}
               className="object-contain"
             />
             <Image
               src="/Images/PTAA.jpg"
               alt="PTAA"
-              width={170}
-              height={65}
+              width={72}
+              height={72}
               className="object-contain"
             />
             <Image

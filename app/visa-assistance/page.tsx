@@ -128,6 +128,7 @@ export default function VisaAssistancePage() {
                     type="button"
                     className={styles.cardLabelButton}
                     onClick={() => setSelectedCountry(card.country)}
+                    aria-label={`Inquire about ${card.country} visa`}
                   >
                     {`Inquire ${card.country} Visa`}
                   </button>

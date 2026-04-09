@@ -97,7 +97,7 @@ export default function Navbar({ tone = "light" }: NavbarProps) {
                   </svg>
                 </Link>
 
-                <div className="pointer-events-none absolute left-1/2 top-full z-40 w-max -translate-x-1/2 pt-2 opacity-0 transition-opacity duration-150 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                <div className="pointer-events-none absolute left-1/2 top-full z-40 w-max -translate-x-1/2 pt-2 opacity-0 transition-opacity duration-150 group-hover:pointer-events-auto group-hover:opacity-100">
                   <div className="min-w-[12rem] rounded-md border border-black/10 bg-white py-1 text-slate-900 shadow-lg">
                     {destinationSubItems.map((subItem) => (
                       <Link

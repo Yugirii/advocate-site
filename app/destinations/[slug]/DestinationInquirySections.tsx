@@ -98,15 +98,14 @@ function DestinationGridSection({
                   className="object-cover"
                 />
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex min-h-[3.7rem] translate-y-2 items-center justify-center bg-white/95 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <button
-                    type="button"
-                    onClick={() => onInquire(destination.name)}
-                    className="pointer-events-auto text-xl font-semibold leading-none text-[#50a7a4] transition-colors duration-200 hover:text-[#E39727]"
-                  >
-                    Inquire
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => onInquire(destination.name)}
+                  className="pointer-events-none absolute inset-x-0 bottom-0 flex min-h-[3.7rem] w-full translate-y-2 items-center justify-center bg-white/95 text-xl font-semibold leading-none text-[#50a7a4] opacity-0 transition-all duration-200 hover:text-[#E39727] group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                  aria-label={`Inquire about ${destination.name}`}
+                >
+                  Inquire
+                </button>
               </div>
             </article>
           </div>

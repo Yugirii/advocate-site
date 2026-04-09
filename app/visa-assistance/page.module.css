@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.15rem;
+  padding: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -92,7 +92,12 @@
 .cardLabelButton {
   border: none;
   background: transparent;
-  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.15rem;
   cursor: pointer;
   color: #50a7a4;
   text-decoration: none;
@@ -203,14 +208,6 @@
 
   .contactItem {
     font-size: 1rem;
-  }
-
-  .cardLabel {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-    min-height: 5.25rem;
   }
 
 }
