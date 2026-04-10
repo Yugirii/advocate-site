@@ -54,7 +54,10 @@ export default function Home() {
               Start your travel business with a trusted one-stop partner. Get
               access to tools, training, and support to grow with confidence.
             </p>
-            <Link href="/services#tourist-visa-assistance" className={`font-display ${ctaClass}`}>
+            <Link
+              href="/services#be-an-advoquickfix-affiliate"
+              className={`font-display ${ctaClass}`}
+            >
               Explore <span aria-hidden="true">&gt;</span>
             </Link>
           </div>

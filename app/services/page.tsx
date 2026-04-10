@@ -84,7 +84,8 @@ export default function ServicesPage() {
       <section className="w-full bg-[var(--background)]">
         <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-16 md:py-20 max-md:px-4 max-md:py-10">
           <h2
-            className={`font-display mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
+            id="be-an-advoquickfix-affiliate"
+            className={`font-display scroll-mt-24 mx-auto max-w-3xl text-center text-4xl leading-[1.1] tracking-[0.04em] text-[#50a7a4] uppercase sm:text-5xl max-md:text-3xl`}
           >
             Be an Advoquickfix Affiliate
           </h2>
