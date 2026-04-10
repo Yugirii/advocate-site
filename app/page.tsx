@@ -121,7 +121,7 @@ export default function Home() {
             <div className={styles.profileOverlay} />
             <div className={styles.profileContent}>
               <h2 className={`font-display text-3xl uppercase tracking-[0.08em] text-amber-500 sm:text-4xl md:text-5xl`}>
-                Advocate Tours and Travels Inc.
+                Advocate Tours and Travel Inc.
               </h2>
               <p className="max-w-xl text-sm leading-6 text-white/90 sm:text-base">
                 Learn about our mission, our people, and how we help travelers
