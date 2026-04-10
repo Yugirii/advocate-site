@@ -8,6 +8,28 @@ type DestinationCard = {
   image: string;
 };
 
+type TourItineraryDay = {
+  day: string;
+  items: readonly string[];
+};
+
+type TourDetails = {
+  packageName: string;
+  route?: string;
+  airline?: string;
+  highlight?: string;
+  additionalSummaryLines?: readonly string[];
+  travelDatesHeading?: string;
+  travelDates: readonly string[];
+  itineraryHeading?: string;
+  itinerary: readonly TourItineraryDay[];
+  hotelsHeading?: string;
+  hotels?: readonly string[];
+  inclusions: readonly string[];
+  exclusions: readonly string[];
+  exclusionNotes?: readonly string[];
+};
+
 type TravelerField = "adults" | "children" | "infants";
 
 type InquiryFormState = {
@@ -39,10 +61,519 @@ const initialFormState: InquiryFormState = {
   additionalInquiries: "",
 };
 
+const tourDetailsByDestination: Record<string, TourDetails> = {
+  "Memorable Japan": {
+    packageName: "Memorable Japan 2026 Tour Package",
+    route: "Tokyo, Fuji, Gifu, Kyoto, Osaka",
+    airline: "Via Japan Airlines (JAL)",
+    highlight: "Includes Tokyo Disneyland or DisneySea",
+    travelDates: [
+      "Jul 23 - Jul 30, 2026",
+      "Aug 20 - Aug 27, 2026",
+      "Sep 09 - Sep 16, 2026",
+      "Oct 30 - Nov 06, 2026",
+      "Nov 25 - Dec 02, 2026",
+    ],
+    itinerary: [
+      {
+        day: "Day 1",
+        items: ["Meals on board", "Departure from Manila"],
+      },
+      {
+        day: "Day 2",
+        items: [
+          "Breakfast, Lunch, Dinner",
+          "Arrival in Haneda",
+          "Travel to Kamakura",
+          "Visit Kotoku-in Great Buddha and Hasedera Temple",
+          "Proceed to Yokohama: Ramen Museum, Biggest Chinatown, Minato Mirai Shopping Area",
+        ],
+      },
+      {
+        day: "Day 3",
+        items: [
+          "Breakfast",
+          "Tokyo Disney Resort: Enjoy Tokyo Disneyland or DisneySea (day pass ticket and transfers included)",
+        ],
+      },
+      {
+        day: "Day 4",
+        items: [
+          "Breakfast, Lunch, Dinner",
+          "Visit Senso-ji Temple in Asakusa",
+          "Visit Nakamise Street",
+          "Photo stop at Sky Tree",
+          "Visit Shibuya Crossing",
+          "Photo stop at Hachiko Statue",
+          "Transfer to Kawaguchiko",
+        ],
+      },
+      {
+        day: "Day 5",
+        items: [
+          "Breakfast, Lunch, Dinner",
+          "Shop at Gotemba Factory",
+          "Visit Oshino Hakkai (viewing of Mt. Fuji)",
+          "Photo stop at Lake Kawaguchi (viewing of Mt. Fuji)",
+          "Transfer to Nagoya",
+        ],
+      },
+      {
+        day: "Day 6",
+        items: [
+          "Breakfast, Lunch, Dinner",
+          "Transfer to Kyoto",
+          "Visit Arashiyama Bamboo Grove (with Togetsukyo Bridge)",
+          "Visit Fushimi Inari Taisha Shrine",
+          "Transfer to Osaka",
+          "Enjoy shopping at Shinsaibashi or Dotonbori",
+        ],
+      },
+      {
+        day: "Day 7",
+        items: [
+          "Breakfast",
+          "Photo stop at Osaka Castle",
+          "Enjoy Universal Studios Japan (day pass ticket included)",
+          "Transfer to airport for departure",
+        ],
+      },
+      {
+        day: "Day 8",
+        items: ["Meals on board", "Arrival in Manila"],
+      },
+    ],
+    inclusions: [
+      "Roundtrip airfare via Japan Airlines",
+      "Check-in baggage and hand carry",
+      "5 nights hotel accommodation",
+      "Private coach transfers",
+      "Meals as specified (6 breakfasts, 4 lunches, 4 dinners)",
+      "Fully loaded tours",
+      "Universal Studios Japan entrance",
+      "Tokyo Disneyland or DisneySea entrance",
+      "English-speaking guide",
+      "Filipino tour escort",
+    ],
+    exclusions: ["Airline tax", "Tipping", "Travel insurance", "Japan visa"],
+  },
+  "Vietnam Rose 2.0": {
+    packageName: "Vietnam Rose 2.0 (2026-2027)",
+    route: "Da Nang, Hoi An, Hue, Incense Village",
+    airline: "4 Days / 3 Nights",
+    highlight: "For as low as ₱38,888 per pax",
+    travelDates: [
+      "Apr 22 - Apr 25, 2026",
+      "Apr 24 - Apr 27, 2026",
+      "Apr 25 - Apr 28, 2026",
+      "Apr 28 - May 01, 2026",
+      "Apr 29 - May 02, 2026",
+      "May 02 - May 05, 2026",
+      "May 07 - May 10, 2026",
+      "May 13 - May 16, 2026",
+      "May 18 - May 21, 2026",
+      "May 22 - May 25, 2026",
+      "May 28 - May 31, 2026",
+      "Jun 10 - Jun 13, 2026",
+      "Jul 23 - Jul 26, 2026",
+      "Aug 19 - Aug 22, 2026",
+      "Oct 29 - Nov 01, 2026",
+      "Nov 27 - Nov 30, 2026",
+      "Dec 25 - Dec 28, 2026",
+      "Jan 02 - Jan 05, 2027",
+    ],
+    itineraryHeading: "Itinerary",
+    itinerary: [
+      {
+        day: "Day 1",
+        items: [
+          "Departure from Manila",
+          "Arrival in Da Nang",
+          "Meet and greet at the airport",
+          "Proceed to Da Nang City Center",
+        ],
+      },
+      {
+        day: "Day 2 (Breakfast + Lunch + Dinner)",
+        items: [
+          "Shop at Han Market",
+          "Cross the High Mountain Pass of Hai Van",
+          "Visit Thuy Xuan Incense Village",
+          "Visit Hue's Ancient Citadel",
+          "Proceed to the Noon Gate to visit Thai Hoa Palace",
+          "Proceed back to Da Nang",
+        ],
+      },
+      {
+        day: "Day 3 (Breakfast + Lunch + Dinner)",
+        items: [
+          "Visit Linh Ung Pagoda and Lady Buddha Statue",
+          "Transfer to Ba Na Hills",
+          "Enjoy journey to mountain by cable car",
+          "Visit Debay Wine Cellar, Loc Uyen Garden, Golden Bridge, Quan Am Pavilion, Monkey Garden, French Village, Fantasy Park",
+          "Return to Da Nang then drive to Hoi An",
+          "Enjoy Hoi An Lantern Boat along Thu Bon River",
+        ],
+      },
+      {
+        day: "Day 4 (Breakfast + Lunch + Dinner)",
+        items: [
+          "Proceed to Hoi An Ancient Town",
+          "Visit Ecological Village of Cam Thanh",
+          "Visit Bay Mau Coconut Forest (Basket Boat Race)",
+          "Visit Japanese Covered Bridge",
+          "Visit Phuc Kien Chinese Assembly Hall",
+          "Enjoy last minute shopping at Hoi An Market or Ancient Town",
+          "Transfer to airport",
+          "Arrival in Manila",
+        ],
+      },
+    ],
+    hotels: [
+      "Da Nang Hotel: 4-Star Deluxe Beachfront (Premium)",
+      "Hoi An Hotel: #1 Rated 5-Star Deluxe Resort (Premium)",
+    ],
+    inclusions: [
+      "Roundtrip airfare via Cebu Pacific",
+      "7kg hand carry",
+      "2 nights in Da Nang (4-Star Deluxe Beachfront Hotel)",
+      "1 night in Hoi An (#1 Rated 5-Star Hotel)",
+      "Full board meals (B+L+D)",
+      "Private coach",
+      "Fully loaded tours",
+      "English-speaking guide",
+      "Filipino tour escort",
+    ],
+    exclusions: [
+      "PH travel tax",
+      "Tipping",
+      "Travel insurance",
+      "Check-in baggage",
+    ],
+  },
+  "Tales of Arctic 2026": {
+    packageName: "Tales of Arctic 2026",
+    route: "10 Days / 9 Nights",
+    airline: "Christmas in Arctic",
+    highlight: "Dec 21 - Dec 30, 2026",
+    additionalSummaryLines: [
+      "Via Turkish Airlines",
+      "For as low as $5,988 per pax",
+      "#ChoosePremium - Tales of Europe",
+    ],
+    travelDates: ["Dec 21 - Dec 30, 2026"],
+    itineraryHeading: "Itinerary",
+    itinerary: [
+      {
+        day: "Day 1 - Manila",
+        items: ["Meals on board", "Departure from Manila"],
+      },
+      {
+        day: "Day 2 - Rovaniemi, Suomutunturi",
+        items: [
+          "Meals on board + Dinner",
+          "Arrival in Rovaniemi",
+          "Visit Santa Claus Village (meet Santa himself and cross Arctic Circle with certificates)",
+          "Proceed to Suomutunturi",
+        ],
+      },
+      {
+        day: "Day 3 - Suomutunturi, Saariselka",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "Transfer to Saariselka",
+          "Snowmobile Safari (2 pax per snowmobile)",
+          "Northern Lights hunting by bus (3 hours)",
+        ],
+      },
+      {
+        day: "Day 4 - Saariselka, Kirkenes",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "Husky Safari",
+          "Visit Sami Museum Siida (with entrance)",
+          "Departure to Kirkenes",
+        ],
+      },
+      {
+        day: "Day 5 - Kirkenes, Saariselka",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "King Crab Safari with crab lunch",
+          "Visit Snow Hotel Kirkenes",
+          "Proceed to Saariselka",
+          "Overnight in Arctic Studios at Aurora Collection Resort (2 pax per studio)",
+        ],
+      },
+      {
+        day: "Day 6 - Saariselka",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "Visit Reindeer Farm (short sledge ride)",
+          "Experience Finnish sauna and ice swimming",
+          "Overnight in Arctic Studios at Aurora Collection Resort",
+        ],
+      },
+      {
+        day: "Day 7 - Saariselka, Haparanda, Kemi",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "Proceed to Haparanda, cross border of Sweden and Finland",
+          "Ice Fishing and Whitefish Grilling in Timber Smoke Hut",
+          "Proceed to Kemi",
+        ],
+      },
+      {
+        day: "Day 8 - Kemi",
+        items: [
+          "Breakfast + Lunch + Dinner",
+          "Free day: leisure and shopping or optional Arktis Morning Cruise / Afternoon Cruise",
+        ],
+      },
+      {
+        day: "Day 9 - Kemi, Rovaniemi",
+        items: [
+          "Breakfast + Meals on board",
+          "Transfer to Rovaniemi for flight back to Manila",
+        ],
+      },
+      {
+        day: "Day 10 - Manila",
+        items: ["Meals on board", "Arrival in Manila"],
+      },
+    ],
+    inclusions: [
+      "Roundtrip international airfare via Turkish Airlines",
+      "Hand carry with check-in baggage",
+      "7 nights hotel accommodation",
+      "Meals as specified",
+      "Private coach",
+      "Fully loaded tours",
+      "English-speaking tour guide",
+      "Filipino tour escort",
+    ],
+    exclusions: ["Airline taxes", "Travel insurance", "Visa fee", "Tipping"],
+  },
+  "Disney Fly & Cruise 2026": {
+    packageName: "Disney Fly & Cruise 2026",
+    route: "6 Days / 5 Nights",
+    airline: "Philippines - Singapore - Philippines",
+    highlight: "For as low as $1,288 per pax",
+    additionalSummaryLines: ["#ChoosePremium"],
+    travelDates: [
+      "Apr 26 - May 01, 2026 - SOLD OUT",
+      "May 17 - May 22, 2026 - SOLD OUT",
+      "Oct 25 - Oct 30, 2026",
+      "Nov 15 - Nov 20, 2026",
+    ],
+    itineraryHeading: "Itinerary",
+    itinerary: [
+      {
+        day: "Day 1 - Manila to Singapore",
+        items: [
+          "Departure from Manila",
+          "Arrival in Singapore",
+          "Transfer to hotel",
+        ],
+      },
+      {
+        day: "Day 2 - Cruise Embarkation (Breakfast + Dinner)",
+        items: [
+          "Proceed to Marina Bay Cruise Centre",
+          "Embark on the Disney Adventure Cruise",
+        ],
+      },
+      {
+        day: "Day 3 - Disney Adventure Cruise (Breakfast + Lunch + Dinner)",
+        items: [
+          "Be enchanted with Disney-exclusive experiences",
+          "Explore seven unique themed areas",
+        ],
+      },
+      {
+        day: "Day 4 - Disney Adventure Cruise (Breakfast + Lunch + Dinner)",
+        items: [
+          "Enjoy world-class entertainment onboard",
+          "Immerse in magical, story-driven environments",
+        ],
+      },
+      {
+        day: "Day 5 - Singapore City Tour (Breakfast)",
+        items: [
+          "Disembark at Marina Bay Cruise Centre",
+          "Enjoy Singapore City Tour",
+          "Transfer to hotel",
+        ],
+      },
+      {
+        day: "Day 6 - Singapore to Manila (Breakfast)",
+        items: [
+          "Free time",
+          "Transfer to airport",
+          "Departure from Singapore",
+          "Arrival in Manila",
+        ],
+      },
+    ],
+    inclusions: [
+      "Roundtrip airfare via Cebu Pacific",
+      "20kg check-in baggage with 7kg hand carry",
+      "1 night pre-cruise accommodation",
+      "3 nights Disney Adventure Cruise (based on twin sharing)",
+      "1 night post-cruise accommodation",
+      "Post-cruise city tour in Singapore",
+      "Full board meals onboard",
+      "Private transfers (pre and post)",
+      "Travel insurance (up to 75 y/o only)",
+      "English-speaking guide",
+      "Filipino tour escort",
+    ],
+    exclusions: ["Port charges", "Gratuities", "PH travel tax (by own)"],
+  },
+  "Go Batanes 2026": {
+    packageName: "Go Batanes 2026",
+    route: "4 Days / 3 Nights",
+    airline: "For as low as ₱28,888 per pax",
+    highlight: "ALL IN! NO EXCLUSIONS!",
+    additionalSummaryLines: ["Via Philippine Airlines - Out of Clark"],
+    travelDatesHeading: "Travel Dates & Prices",
+    travelDates: [
+      "Jun 26 - Jun 29, 2026",
+      "Jul 10 - Jul 13, 2026",
+      "Aug 24 - Aug 27, 2026",
+      "Sep 04 - Sep 07, 2026",
+      "May 15 - May 18, 2026",
+      "Oct 30 - Nov 02, 2026",
+      "Nov 20 - Nov 23, 2026",
+      "Dec 23 - Dec 26, 2026",
+      "Dec 30 - Jan 02, 2027",
+    ],
+    itineraryHeading: "Itinerary",
+    itinerary: [
+      {
+        day: "Day 1 - Arrival and Batan North Tour",
+        items: [
+          "Breakfast + Lunch",
+          "Departure from Manila",
+          "Arrival in Basco",
+          "Transfer to hotel",
+          "Free time",
+          "Batan North Tour:",
+          "Valugan Boulder Bay",
+          "Japanese Tunnel",
+          "Basco Cathedral",
+          "Tukon Chapel",
+          "Basco Lighthouse",
+          "Basco Rolling Hills",
+          "Radar Station",
+          "Casa Real",
+          "Amandangat",
+          "Kilometer Zero",
+        ],
+      },
+      {
+        day: "Day 2 - Sabtang Island Tour",
+        items: [
+          "Breakfast + Lunch",
+          "Proceed to Sabtang Island via Faluwa",
+          "Transfer to Ivana Port",
+          "Transfer to hotel",
+          "Free time",
+          "Sabtang Island Tour:",
+          "San Vicente Ferrer Church",
+          "Savidug Community",
+          "Savidug Idjang Fortress",
+          "Tinyan Viewing of Pacific Ocean",
+          "Vernacular Houses",
+          "Chavayan Community Vernacular Houses",
+          "Ahaw Arc",
+          "Morong Beach",
+          "Souvenir Shops",
+        ],
+      },
+      {
+        day: "Day 3 - Batan South Tour",
+        items: [
+          "Breakfast + Lunch",
+          "Batan South Tour:",
+          "Racuh A Payaman",
+          "Mahatao Church Complex",
+          "Chawa View Deck",
+          "Mahatao Shelter Port",
+          "Maydangeb White Beach (no swimming)",
+          "San Jose Spanish Bridge",
+          "House of Dakay",
+          "Honesty Coffee Shop",
+          "Ivana Church Complex",
+          "Mutchong Viewpoint",
+          "Itbud Church",
+          "Madangay Hills and Alapad Rock Formation",
+          "BAMSO Museum",
+          "Transfer to hotel",
+        ],
+      },
+      {
+        day: "Day 4 - Departure",
+        items: [
+          "Breakfast",
+          "Transfer to airport for departure",
+          "Flight back to Manila",
+        ],
+      },
+    ],
+    inclusions: [
+      "Roundtrip airfare via Philippine Airlines",
+      "7kg hand carry",
+      "10kg check-in baggage",
+      "3 nights hotel accommodation",
+      "Roundtrip airport transfers via private company",
+      "Roundtrip boat transfers",
+      "Meals as per itinerary (4B-3L)",
+      "Daily hotel breakfast",
+      "Fully loaded tours",
+      "Licensed tour guide",
+      "Bottled water",
+      "LGU fees",
+      "Environmental fee",
+      "Travel insurance",
+    ],
+    exclusions: ["₱400 Fuel Surcharge"],
+    exclusionNotes: ["NOTE: Amount is subject to change."],
+  },
+  "Go Boracay 2026": {
+    packageName: "Go Boracay 2026",
+    airline: "For as low as \u20b111,888 per pax",
+    highlight: "ALL IN! NO EXCLUSIONS!",
+    travelDates: [],
+    itinerary: [],
+    hotelsHeading: "Boracay Beachfront Hotel Options",
+    hotels: [
+      "Mandarin Nest Boracay - Beachfront (Station 2) | Twin - \u20b116,888 | Triple - \u20b116,588",
+      "Belmont Hotel Boracay - Beachfront (Newcoast) | Twin - \u20b113,888 | Triple - \u20b113,588",
+      "The Muse Hotel Boracay - Beachfront (Station 1) | Twin - \u20b115,588 | Triple - \u20b114,888",
+      "La Carmela de Boracay - Beachfront (Station 2) | Twin - \u20b112,888 | Triple - \u20b112,888",
+      "Bamboo Beach Resort Boracay - Beachfront (Station 3) | Twin - \u20b111,888 | Triple - \u20b111,888",
+    ],
+    inclusions: [
+      "Roundtrip airfare via Cebu Pacific (via Caticlan)",
+      "7kg hand carry",
+      "3 nights hotel accommodation",
+      "Daily hotel breakfast",
+      "Roundtrip airport transfers via private company",
+      "Terminal fee",
+      "Environmental fee",
+    ],
+    exclusions: ["Check-in baggage", "Travel insurance", "\u20b1400 Fuel Surcharge"],
+    exclusionNotes: ["NOTE: Amount is subject to change."],
+  },
+};
+
 type DestinationInquirySectionsProps = {
   headingFontClass: string;
+  featuredDestinations?: readonly DestinationCard[];
   longHaulDestinations: readonly DestinationCard[];
   shortHaulDestinations?: readonly DestinationCard[];
+  featuredTitle?: string | null;
   longHaulTitle?: string | null;
   shortHaulTitle?: string | null;
 };
@@ -53,6 +584,7 @@ type DestinationGridSectionProps = {
   destinations: readonly DestinationCard[];
   onInquire: (destinationName: string) => void;
   extraTopMargin?: string;
+  gridTopMargin?: string;
 };
 
 function DestinationGridSection({
@@ -61,8 +593,10 @@ function DestinationGridSection({
   destinations,
   onInquire,
   extraTopMargin = "mt-10",
+  gridTopMargin,
 }: DestinationGridSectionProps) {
   const showHeading = Boolean(title);
+  const resolvedGridTopMargin = gridTopMargin ?? (showHeading ? "mt-4" : "mt-10");
 
   return (
     <>
@@ -75,9 +609,7 @@ function DestinationGridSection({
       ) : null}
 
       <div
-        className={`grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ${
-          showHeading ? "mt-4" : "mt-10"
-        }`}
+        className={`grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ${resolvedGridTopMargin}`}
       >
         {destinations.map((destination) => (
           <div key={destination.name} className="w-full">
@@ -117,8 +649,10 @@ function DestinationGridSection({
 
 export default function DestinationInquirySections({
   headingFontClass,
+  featuredDestinations = [],
   longHaulDestinations,
   shortHaulDestinations = [],
+  featuredTitle = "Featured Packages",
   longHaulTitle = "Long Haul",
   shortHaulTitle = "Short Haul",
 }: DestinationInquirySectionsProps) {
@@ -130,6 +664,7 @@ export default function DestinationInquirySections({
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [formErrors, setFormErrors] = useState<InquiryFormErrors>({});
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const selectedTourDetails = tourDetailsByDestination[selectedDestination];
 
   const openModal = (destinationName: string) => {
     setSelectedDestination(destinationName);
@@ -388,11 +923,30 @@ export default function DestinationInquirySections({
 
   return (
     <>
+      {featuredTitle ? (
+        <h2
+          className={`${headingFontClass} mt-10 text-2xl uppercase leading-[1.1] tracking-[0.03em] text-[#50a7a4] sm:text-3xl`}
+        >
+          {featuredTitle}
+        </h2>
+      ) : null}
+
+      {featuredDestinations.length > 0 ? (
+        <DestinationGridSection
+          title={null}
+          headingFontClass={headingFontClass}
+          destinations={featuredDestinations}
+          onInquire={openModal}
+          gridTopMargin="mt-4"
+        />
+      ) : null}
+
       <DestinationGridSection
         title={longHaulTitle}
         headingFontClass={headingFontClass}
         destinations={longHaulDestinations}
         onInquire={openModal}
+        extraTopMargin={featuredDestinations.length > 0 ? "mt-12" : featuredTitle ? "mt-6" : "mt-10"}
       />
 
       {shortHaulDestinations.length > 0 ? (
@@ -447,7 +1001,107 @@ export default function DestinationInquirySections({
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+            {selectedTourDetails ? (
+              <section className="mt-6 rounded-lg border border-[#d5d5d5] bg-white px-4 py-4 sm:px-5">
+                <h4 className="text-2xl font-semibold leading-tight text-black">
+                  Tour Details
+                </h4>
+
+                <div className="mt-4 space-y-0.5 text-base leading-7 text-[#1f1f1f]">
+                  <p className="font-semibold">{selectedTourDetails.packageName}</p>
+                  {selectedTourDetails.route ? <p>{selectedTourDetails.route}</p> : null}
+                  {selectedTourDetails.airline ? <p>{selectedTourDetails.airline}</p> : null}
+                  {selectedTourDetails.highlight ? (
+                    <p>{selectedTourDetails.highlight}</p>
+                  ) : null}
+                  {selectedTourDetails.additionalSummaryLines?.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
+
+                {selectedTourDetails.travelDates.length ? (
+                  <div className="mt-5">
+                    <h5 className="text-xl font-semibold leading-tight text-black">
+                      {selectedTourDetails.travelDatesHeading ?? "Travel Dates"}
+                    </h5>
+                    <ul className="mt-2 list-disc space-y-1 pl-6 text-base leading-tight text-[#111111]">
+                      {selectedTourDetails.travelDates.map((date) => (
+                        <li key={date}>{date}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {selectedTourDetails.itinerary.length ? (
+                  <div className="mt-6">
+                    <h5 className="text-xl font-semibold leading-tight text-black">
+                      {selectedTourDetails.itineraryHeading ?? "Updated Itinerary"}
+                    </h5>
+                    <div className="mt-3 space-y-4 text-[#111111]">
+                      {selectedTourDetails.itinerary.map((entry) => (
+                        <div key={entry.day}>
+                          <p className="text-lg font-semibold leading-tight">
+                            {entry.day}
+                          </p>
+                          <ul className="mt-1 list-disc space-y-1 pl-6 text-base leading-tight">
+                            {entry.items.map((item) => (
+                              <li key={`${entry.day}-${item}`}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                {selectedTourDetails.hotels?.length ? (
+                  <div className="mt-6">
+                    <h5 className="text-xl font-semibold leading-tight text-black">
+                      {selectedTourDetails.hotelsHeading ?? "Hotels"}
+                    </h5>
+                    <ul className="mt-2 list-disc space-y-1 pl-6 text-base leading-tight text-[#111111]">
+                      {selectedTourDetails.hotels.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                <div className="mt-6">
+                  <h5 className="text-xl font-semibold leading-tight text-black">
+                    Inclusions
+                  </h5>
+                  <ul className="mt-2 list-disc space-y-1 pl-6 text-base leading-tight text-[#111111]">
+                    {selectedTourDetails.inclusions.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6">
+                  <h5 className="text-xl font-semibold leading-tight text-black">
+                    Exclusions
+                  </h5>
+                  <ul className="mt-2 list-disc space-y-1 pl-6 text-base leading-tight text-[#111111]">
+                    {selectedTourDetails.exclusions.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  {selectedTourDetails.exclusionNotes?.length ? (
+                    <div className="mt-2 space-y-1 text-sm leading-tight text-[#444444]">
+                      {selectedTourDetails.exclusionNotes.map((note) => (
+                        <p key={note}>{note}</p>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              </section>
+            ) : null}
+
+            <form
+              onSubmit={handleSubmit}
+              className={`${selectedTourDetails ? "mt-8" : "mt-6"} space-y-6`}
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-base font-medium leading-6 text-[#1f1f1f]">

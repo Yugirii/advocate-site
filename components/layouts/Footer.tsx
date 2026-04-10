@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const legalPageHref = "/legal";
+const privacyPolicyHref = "/privacy-policy";
 
 const legalLinks = [
-  { href: `${legalPageHref}#privacy-policy`, label: "Privacy Policy" },
+  { href: privacyPolicyHref, label: "Privacy Policy" },
   { href: `${legalPageHref}#terms-and-conditions`, label: "Terms & Conditions" },
   { href: `${legalPageHref}#faqs`, label: "FAQs" },
 ];
@@ -63,7 +64,7 @@ export default function Footer() {
               <Link href="/about" className={footerLinkClass}>
                 Our Company
               </Link>
-              <p>advocatetoursandtravel@gmail.com</p>
+              <p className="break-all">advocatetoursandtravel@gmail.com</p>
               <p>+63 905 845 4125</p>
             </div>
           </div>
@@ -143,7 +144,7 @@ export default function Footer() {
           </nav>
 
           <p className="text-sm text-white/90">
-            &copy; 2019-2026 Advocate Tours and Travel Incorporated | 4th Floor, Unit 404, 4th floor
+            &copy; 2019-2026 Advocate Tours and Travel Incorporated | 4th Floor, Unit 404,
             Building M, One Oasis Hub, Ortigas Ave Ext., Pasig, Philippines
           </p>
         </div>

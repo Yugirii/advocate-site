@@ -49,6 +49,39 @@ const shortHaulDestinations = [
   { name: "China", image: "china2.jpg" },
 ] as const;
 
+const internationalFeaturedPackages = [
+  {
+    name: "Memorable Japan",
+    image: "JAPAN (Memorable Japan_Tokyo-Osaka via JAL) 2026 - copy.jpg",
+  },
+  {
+    name: "Vietnam Rose 2.0",
+    image: "VIETNAM (Vietnam Rose 2.0) 2026-2027 - copy.jpg",
+  },
+  {
+    name: "Tales of Arctic 2026",
+    image: "EUROPE (Tales of Arctic) 2026 - copy.jpg",
+  },
+] as const;
+
+const domesticFeaturedPackages = [
+  {
+    name: "Go Batanes 2026",
+    image: "BATANES (Go Batanes) 2026 - copy.jpg",
+  },
+  {
+    name: "Go Boracay 2026",
+    image: "BORACAY (Go Boracay) 2026 - copy.jpg",
+  },
+] as const;
+
+const cruiseFeaturedPackages = [
+  {
+    name: "Disney Fly & Cruise 2026",
+    image: "FLY & CRUISE (Disney Adventure) 2026 - copy.jpg",
+  },
+] as const;
+
 const domesticDestinations = [
   { name: "Batanes", image: "batanes2.jpg" },
   { name: "El Nido", image: "elnido2.jpg" },
@@ -99,14 +132,13 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </h1>
 
             <p className="mt-4 max-w-5xl text-base leading-7 text-[#1f1f1f]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-              orci, consectetur id nulla et, condimentum lacinia lacus. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos.
+              Explore our international destinations, offering a wide range of experiences for every traveler. 
+              From vibrant cities to serene landscapes, our curated selection ensures unforgettable journeys worldwide.
             </p>
 
             <DestinationInquirySections
               headingFontClass="font-display"
+              featuredDestinations={internationalFeaturedPackages}
               longHaulDestinations={longHaulDestinations}
               shortHaulDestinations={shortHaulDestinations}
             />
@@ -128,14 +160,13 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </h1>
 
             <p className="mt-4 max-w-5xl text-base leading-7 text-[#1f1f1f]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-              orci, consectetur id nulla et, condimentum lacinia lacus. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos.
+              Discover the beauty of our domestic destinations, offering a diverse range of experiences across the country.
+              Explore stunning beaches and breathtaking landscapes as our curated selection ensures unforgettable journeys within our borders.
             </p>
 
             <DestinationInquirySections
               headingFontClass="font-display"
+              featuredDestinations={domesticFeaturedPackages}
               longHaulDestinations={domesticDestinations}
               longHaulTitle={null}
             />
@@ -157,14 +188,13 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             </h1>
 
             <p className="mt-4 max-w-5xl text-base leading-7 text-[#1f1f1f]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut velit
-              orci, consectetur id nulla et, condimentum lacinia lacus. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos.
+              Experience the world of cruise travel with our curated cruise destinations.
+              From luxurious ocean voyages to scenic river cruises, our selection offers unforgettable journeys on the water, with expert guidance and support for every traveler.
             </p>
 
             <DestinationInquirySections
               headingFontClass="font-display"
+              featuredDestinations={cruiseFeaturedPackages}
               longHaulDestinations={cruiseDestinations}
               longHaulTitle={null}
             />
