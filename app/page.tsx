@@ -34,7 +34,7 @@ export default function Home() {
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <h1 className={`font-display text-2xl uppercase tracking-[0.1em] text-amber-500 sm:text-3xl md:text-4xl`}>
-              Travel leisurely, explore endlessly
+              Advocate Tours and Travel Inc.
             </h1>
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-white/90 sm:text-base">
               Discover handpicked destinations, curated tours, and seamless

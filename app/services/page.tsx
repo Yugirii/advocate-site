@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import ScrollToHash from "./ScrollToHash";
+import ServicesImageScrollUp from "./ServicesImageScrollUp";
 import WebsiteInquiryForm from "../../components/client/WebsiteInquiryForm";
 
 export const metadata: Metadata = {
@@ -20,6 +21,25 @@ const affiliateBenefits = [
   "Get your own booking portal - easy to manage and ready to use",
   "Be part of a growing travel community",
 ];
+
+const advoquickfixPromos = [
+  {
+    src: "/Images/advoquickfix2.jpg",
+    alt: "Advoquickfix promo card about travel business tools and support",
+  },
+  {
+    src: "/Images/advoquickfix3.jpg",
+    alt: "Advoquickfix promo card highlighting benefits for travel affiliates",
+  },
+  {
+    src: "/Images/advoquickfix4.jpg",
+    alt: "Advoquickfix promo card encouraging online travel business setup",
+  },
+  {
+    src: "/Images/advoquickfix1.jpg",
+    alt: "Advoquickfix promo card inviting users to join the affiliate program",
+  },
+] as const;
 
 const visaReasons = [
   "Fast and reliable",
@@ -63,8 +83,12 @@ const travelInsuranceSlides = [
 
 export default function ServicesPage() {
   return (
-    <main className={`${styles.main} font-[var(--font-body)] text-black`}>
+    <main
+      data-services-page="true"
+      className={`${styles.main} font-[var(--font-body)] text-black`}
+    >
       <ScrollToHash />
+      <ServicesImageScrollUp />
       <section className={styles.hero}>
         <Image
           src="/Images/visaassistance2.jpg"
@@ -113,6 +137,7 @@ export default function ServicesPage() {
                   src="/Images/checkMark.png"
                   alt=""
                   aria-hidden="true"
+                  data-no-scroll="true"
                   width={44}
                   height={44}
                   className="h-11 w-11 flex-shrink-0 object-contain"
@@ -120,6 +145,24 @@ export default function ServicesPage() {
                 <p className="text-base font-semibold leading-7 text-[#121212]">
                   {benefit}
                 </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-12 grid w-full max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 max-md:mt-10 max-md:gap-4">
+            {advoquickfixPromos.map((promo) => (
+              <article
+                key={promo.src}
+                className="overflow-hidden rounded-[6px] border border-[#d9d9d9] bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+              >
+                <Image
+                  src={promo.src}
+                  alt={promo.alt}
+                  width={1080}
+                  height={1080}
+                  sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+                  className="h-auto w-full object-cover"
+                />
               </article>
             ))}
           </div>
@@ -190,6 +233,7 @@ export default function ServicesPage() {
                       src="/Images/pin3.png"
                       alt=""
                       aria-hidden="true"
+                      data-no-scroll="true"
                       width={24}
                       height={24}
                       className="mt-[0.2rem] h-6 w-6 flex-shrink-0 object-contain"
@@ -223,6 +267,7 @@ export default function ServicesPage() {
                             src="/Images/checkMarkVisa2.png"
                             alt=""
                             aria-hidden="true"
+                            data-no-scroll="true"
                             width={22}
                             height={22}
                             className="mt-[0.25rem] h-5 w-5 flex-shrink-0 object-contain"
