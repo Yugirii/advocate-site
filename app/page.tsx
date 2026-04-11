@@ -5,7 +5,10 @@ import styles from "./page.module.css";
 import WebsiteInquiryForm from "../components/client/WebsiteInquiryForm";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: {
+    absolute:
+      "Advocate Tours and Travel | AdvoQuickfix, Visa Assistance & Travel Services",
+  },
   description:
     "Plan your next trip with Advocate Tours and Travel. Explore curated destinations, visa support, and travel services built for smooth journeys.",
   alternates: {
