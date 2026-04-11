@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import WebsiteInquiryForm from "../components/client/WebsiteInquiryForm";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Plan your next trip with Advocate Tours and Travel. Explore curated destinations, visa support, and travel services built for smooth journeys.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const sectionTitleClass =
   "text-2xl uppercase tracking-[0.06em] text-[#50a7a4] sm:text-3xl";
@@ -127,8 +137,7 @@ export default function Home() {
                 Advocate Tours and Travel Inc.
               </h2>
               <p className="max-w-xl text-sm leading-6 text-white/90 sm:text-base">
-                Learn about our mission, our people, and how we help travelers
-                and travel entrepreneurs grow with confidence.
+                Learn about our mission, our people, and how we help travelers, and travel entrepreneurs grow with confidence.
               </p>
               <Link href="/about" className={`font-display ${ctaClass}`}>
                 Read More <span aria-hidden="true">&gt;</span>

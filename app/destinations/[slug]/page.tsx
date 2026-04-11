@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DestinationInquirySections from "./DestinationInquirySections";
@@ -110,6 +111,33 @@ type DestinationPageProps = {
     slug: string;
   }>;
 }; 
+
+export async function generateMetadata({
+  params,
+}: DestinationPageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  if (!isDestinationSlug(slug)) {
+    return {
+      title: "Destinations",
+      description:
+        "Explore curated travel destinations and packages with Advocate Tours and Travel.",
+      alternates: {
+        canonical: "/destinations",
+      },
+    };
+  }
+
+  const pageData = destinationPages[slug];
+
+  return {
+    title: pageData.title,
+    description: pageData.description,
+    alternates: {
+      canonical: `/destinations/${slug}`,
+    },
+  };
+}
 
 export default async function DestinationDetailPage({ params }: DestinationPageProps) {
   const { slug } = await params;

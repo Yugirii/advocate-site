@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the privacy policy of Advocate Tours and Travel to understand how personal information is collected, used, and protected.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="w-full bg-[#f3f3f3] text-black">

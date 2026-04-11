@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import ScrollToHash from "./ScrollToHash";
 import WebsiteInquiryForm from "../../components/client/WebsiteInquiryForm";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Explore Advocate travel services including affiliate opportunities, tourist visa assistance, booking portal access, and travel insurance.",
+  alternates: {
+    canonical: "/services",
+  },
+};
 
 const affiliateBenefits = [
   "Earn commissions per successful booking",

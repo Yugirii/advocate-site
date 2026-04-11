@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms and Conditions",
+  description:
+    "Review the terms and conditions for using the website and travel services of Advocate Tours and Travel.",
+  alternates: {
+    canonical: "/legal",
+  },
+};
+
 export default function LegalPage() {
   return (
     <main className="w-full bg-[#f3f3f3] text-black">

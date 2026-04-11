@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Advocate Tours and Travel, our mission, affiliations, and commitment to reliable, high-quality travel services.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (
